@@ -29,10 +29,9 @@ namespace LemonadeStand
                 //      Display weather (forecast and actual may be different)
                 //      Help, continue, and end game options
                 //      Use commands like pesants quest? (throw baby)
-                // Start day: Day day = new Day(player.popularity, weather);
+                // Start day: Day day = new Day(weather);
                 //      Use player's popularity and the weather to create Customers
                 //      Each one decides to buy or not buy lemonade, customers can buy more than 1 lemonade
-                //      Those who do buy give feedback
                 // End of day:
                 //      Display results:  money made vs money spent that day, and total money left.
                 //      Non-MVP: # of lemonades sold, customer satisfaction rate, customer feedback table
