@@ -18,5 +18,9 @@ namespace LemonadeStand
             recipe = new Recipe();
             money = 20.00;
         }
+        public void AddToRecipe(string ingredient)
+        {
+            recipe.Add(ingredient);
+        }
     }
 }

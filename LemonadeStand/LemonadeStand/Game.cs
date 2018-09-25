@@ -67,7 +67,8 @@ namespace LemonadeStand
                         //      Define recipie
                         //          Commands: Add/Remove (Lemons, Sugar, Ice)
                         case "ADD":
-                            player.recipe.Add(command[1]); // what if this is cups? need more validation.
+                            player.recipe.Add(command[1]); // how to deal with data privalages?
+                            player.AddToRecipe(command[1]); // This is fine, even though AddToRecipie only has 1 line of code.
                             break;
                         case "REMOVE":
                             player.recipe.Remove(command[1]); // ibid

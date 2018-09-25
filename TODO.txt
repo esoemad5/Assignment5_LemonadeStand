@@ -19,6 +19,9 @@ Game.StartGame:
 
 
 
+Interesting idea: make Item an abstract class and make Inventory a bunch of lists of Item children. Supports more features in the future (follows O of SOLID).
+Perhaps only inventory should handle quantities? Not sure how to do if not using abstract Items
+
 
 
 

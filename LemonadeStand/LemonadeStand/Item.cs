@@ -19,6 +19,12 @@ namespace LemonadeStand
             get => quantity;
             set => quantity = value;
         }
+        private double price;
+        public double Price
+        {
+            get => price;
+            set => price = value;
+        }
         public Item(string name)
         {
             this.name = name;
