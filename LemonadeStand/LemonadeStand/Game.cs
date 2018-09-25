@@ -53,12 +53,31 @@ namespace LemonadeStand
                     //      Display player's inventory, recipie, money, weather, and store prices
                     menu.Display();
                     string[] command = GetPlayerInput();
-                    //      Purchase supplies player.inventory.purchase(Object thing);
-                    //          Commands: Buy (Cups, Lemons, Sugar, Ice)
-                    //      Define recipie
-                    //          Commands: Add/Remove (Lemons, Sugar, Ice)
-                    //      Help, continue, and end game options
-                    //          Commands: Help, Quit, Start
+                    switch (command[0])
+                    {  
+                        //      Purchase supplies player.inventory.purchase(Object thing);
+                        //          Commands: Buy (Cups, Lemons, Sugar, Ice)
+                        case "BUY":
+                            break;
+                        //      Define recipie
+                        //          Commands: Add/Remove (Lemons, Sugar, Ice)
+                        case "ADD":
+                            break;
+                        case "REMOVE":
+                            break;
+                        //      Help, continue, and end game options
+                        //          Commands: Help, Quit, Start
+                        case "START":
+                            break;
+                        case "QUIT":
+                            break;
+                        case "HELP":
+                            break;
+                        case null:
+                            // Display help message. Do a fall-through??
+                        default:
+                            break;
+                    }
                 }
                 
                 // Start day: Day day = new Day(weather);
@@ -71,7 +90,7 @@ namespace LemonadeStand
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
 
-        private string[] GetPlayerInput() // Done. Should return a string[] of length 1 or 2 which will be used to interact with the menu.
+        private string[] GetPlayerInput() // Done. Should return a string[] of length 1 or 2 (all caps) which will be used to interact with the menu.
         {
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
@@ -84,9 +103,9 @@ namespace LemonadeStand
             string[] output = new string[splitInput.Length];
             foreach(ValidInput action in actions)
             {
-                if(splitInput[0] == action.Input)
+                if(splitInput[0].ToUpper() == action.Input.ToUpper())
                 {
-                    output[0] = splitInput[0];
+                    output[0] = splitInput[0].ToUpper();
                 }
                 else
                 {
@@ -101,9 +120,9 @@ namespace LemonadeStand
 
             foreach(ValidInput item in items)
             {
-                if (splitInput[1] == item.Input)
+                if (splitInput[1].ToUpper() == item.Input.ToUpper())
                 {
-                    output[1] = splitInput[1];
+                    output[1] = splitInput[1].ToUpper();
                 }
                 else
                 {
