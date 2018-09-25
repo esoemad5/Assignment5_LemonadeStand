@@ -22,12 +22,14 @@ namespace LemonadeStand
                 new ValidInput("Help"),
                 new ValidInput("Quit"),
                 new ValidInput("Start"),
+                new ValidInput("Change")
             };
             items = new ValidInput[] {
                 new ValidInput("Cups"),
                 new ValidInput("Lemons"),
                 new ValidInput("Sugar"),
                 new ValidInput("Ice"),
+                new ValidInput("Price")
             };
 
         }
