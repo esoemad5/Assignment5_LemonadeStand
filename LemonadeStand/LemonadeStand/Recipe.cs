@@ -26,9 +26,9 @@ namespace LemonadeStand
         {
             for(int i = 0; i < ingredients.Length; i++)
             {
-                if(ingredients[i] == ingredient)
+                if(ingredients[i].Name == ingredient)
                 {
-                    quantity[i]++;
+                    ingredients[i].Quantity++;
                 }
             }
         }
@@ -36,9 +36,9 @@ namespace LemonadeStand
         {
             for (int i = 0; i < ingredients.Length; i++)
             {
-                if (ingredients[i] == ingredient)
+                if (ingredients[i].Name == ingredient)
                 {
-                    quantity[i]--;
+                    ingredients[i].Quantity--;
                 }
             }
         }
