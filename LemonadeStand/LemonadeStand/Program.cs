@@ -10,6 +10,11 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
+            if(null == null)
+            {
+                Console.WriteLine("Hello");
+            }
+            Console.WriteLine("World!");
         }
     }
 }

@@ -9,13 +9,26 @@ namespace LemonadeStand
     class Game
     {
         private int gameLength;
-        private string[] validInputActions;
-        private string[] validInputItems;
+        private ValidInput[] actions;
+        private ValidInput[] items;
         public Game()
         {
             gameLength = 7;
-            validInputActions = new string[] { "BUY", "ADD", "REMOVE", "HELP", "QUIT", "START"};
-            validInputItems = new string[] { "CUPS", "LEMONS", "SUGAR", "ICE" };
+            actions = new ValidInput[]
+            {
+                new ValidInput("Buy"),
+                new ValidInput("Add"),
+                new ValidInput("Remove"),
+                new ValidInput("Help"),
+                new ValidInput("Quit"),
+                new ValidInput("Start"),
+            };
+            items = new ValidInput[] {
+                new ValidInput("Cups"),
+                new ValidInput("Lemons"),
+                new ValidInput("Sugar"),
+                new ValidInput("Ice"),
+            };
 
         }
         public void StartGame()
@@ -58,20 +71,49 @@ namespace LemonadeStand
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
 
-        private string[] GetPlayerInput()
+        private string[] GetPlayerInput() // Done. Should return a string[] of length 1 or 2 which will be used to interact with the menu.
         {
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
-            bool firstWordIsValid = false;
-            foreach(string validAction in validInputActions) // the actions and items need to be a class
+
+            if(splitInput.Length == 0 || splitInput.Length > 2)
             {
-                if(splitInput[0] == validAction)
+                return null;
+            }
+
+            string[] output = new string[splitInput.Length];
+            foreach(ValidInput action in actions)
+            {
+                if(splitInput[0] == action.Input)
                 {
-                    firstWordIsValid = true;
+                    output[0] = splitInput[0];
+                }
+                else
+                {
+                    return null;
                 }
             }
 
-            return null;
+            if(splitInput.Length == 1)
+            {
+                return output;
+            }
+
+            foreach(ValidInput item in items)
+            {
+                if (splitInput[1] == item.Input)
+                {
+                    output[1] = splitInput[1];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return output;
         }
+
+
     }// end of class
 }
