@@ -9,9 +9,14 @@ namespace LemonadeStand
     class Game
     {
         private int gameLength;
+        private string[] validInputActions;
+        private string[] validInputIngredients;
         public Game()
         {
             gameLength = 7;
+            validInputActions = new string[] { "BUY", "ADD", "REMOVE", "HELP", "QUIT", "START"};
+            validInputIngredients = new string[] { "CUPS", "LEMONS", "SUGAR", "ICE" };
+
         }
         public void StartGame()
         {
@@ -34,11 +39,13 @@ namespace LemonadeStand
                     PreDayMenu menu = new PreDayMenu(player, store, weather);
                     //      Display player's inventory, recipie, money, weather, and store prices
                     menu.Display();
-                    string input = Console.ReadLine();
+                    string input = GetPlayerInput();
                     //      Purchase supplies player.inventory.purchase(Object thing);
+                    //          Commands: Buy (Cups, Lemons, Sugar, Ice)
                     //      Define recipie
+                    //          Commands: Add/Remove (Lemons, Sugar, Ice)
                     //      Help, continue, and end game options
-                    //      Use commands like pesants quest? (throw baby)
+                    //          Commands: Help, Quit, Start
                 }
                 
                 // Start day: Day day = new Day(weather);
@@ -50,5 +57,10 @@ namespace LemonadeStand
             }
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
-    }
+
+        private string GetPlayerInput()
+        {
+
+        }
+    }// end of class
 }
