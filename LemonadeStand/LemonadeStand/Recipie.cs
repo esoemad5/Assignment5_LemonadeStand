@@ -17,5 +17,25 @@ namespace LemonadeStand
             quantity = new int[3] { 4, 4, 4 };
 
         }
+        public void Add(string ingredient)
+        {
+            for(int i = 0; i < ingredients.Length; i++)
+            {
+                if(ingredients[i] == ingredient)
+                {
+                    quantity[i]++;
+                }
+            }
+        }
+        public void Remove(string ingredient)
+        {
+            for (int i = 0; i < ingredients.Length; i++)
+            {
+                if (ingredients[i] == ingredient)
+                {
+                    quantity[i]--;
+                }
+            }
+        }
     }
 }
