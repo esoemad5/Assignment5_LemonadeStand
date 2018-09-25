@@ -37,7 +37,7 @@ namespace LemonadeStand
                 //      Display results:  money made vs money spent that day, and total money left.
                 break;
             }
-            // End of day 7, quit, or bankrupt: quit. Any post-game fedback/messages/play again options are non-MVP.
+            // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
         private void DisplayPreparationScreen()
         {
