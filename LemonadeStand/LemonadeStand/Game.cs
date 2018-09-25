@@ -60,20 +60,29 @@ namespace LemonadeStand
                         //      Purchase supplies player.inventory.purchase(Object thing);
                         //          Commands: Buy (Cups, Lemons, Sugar, Ice)
                         case "BUY":
+                            // player.Buy(command[1]);
                             break;
                         //      Define recipie
                         //          Commands: Add/Remove (Lemons, Sugar, Ice)
                         case "ADD":
+                            // player.recipe.Add(command[1]); // what if this is cups? need more validation.
                             break;
                         case "REMOVE":
+                            // player.recipie.Remove(command[1]); // ibid
                             break;
                         //      Help, continue, and end game options
                         //          Commands: Help, Quit, Start
+                        case "CHANGE":
+                            // Change the price/cup of lemonade
+                            break;
                         case "START":
+                            // Go to Day
                             break;
                         case "QUIT":
+                            // Break out of loop and go to end of game
                             break;
                         case "HELP":
+                            // Console.write ValidInput descriptions (kinda post-MVP, but the player does need to learn the commands at some point
                             break;
                         case null:
                             // Display help message. Do a fall-through??
