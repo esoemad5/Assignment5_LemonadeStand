@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) // TODO: .txt file where 2 of the SOLID design priciples were used.
         {
         }
     }
