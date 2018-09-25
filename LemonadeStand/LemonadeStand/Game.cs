@@ -38,7 +38,7 @@ namespace LemonadeStand
             // Display intro/welcome message
             Console.WriteLine();
             // Default 7 day game. Asking user for game length is not part of the MVP
-            //
+
             Player player = new Player();
             Store store = new Store();
             Weather weather = new Weather();
@@ -47,6 +47,8 @@ namespace LemonadeStand
             // Loop the following:
             while (true)
             {
+                weather.NewDay();
+
                 // Preperation menu:
                 playerIsReady = false;
                 while (!playerIsReady)
@@ -65,10 +67,10 @@ namespace LemonadeStand
                         //      Define recipie
                         //          Commands: Add/Remove (Lemons, Sugar, Ice)
                         case "ADD":
-                            // player.recipe.Add(command[1]); // what if this is cups? need more validation.
+                            player.recipe.Add(command[1]); // what if this is cups? need more validation.
                             break;
                         case "REMOVE":
-                            // player.recipie.Remove(command[1]); // ibid
+                            player.recipe.Remove(command[1]); // ibid
                             break;
                         //      Help, continue, and end game options
                         //          Commands: Help, Quit, Start

@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Recipie
+    class Recipe
     {
-        private string[] ingredients;
-        private int[] quantity;
+        private Item[] ingredients;
         
-        public Recipie()
+        public Recipe()
         {
-            ingredients = new string[3] { "Lemons", "Sugar", "Ice" };
-            quantity = new int[3] { 4, 4, 4 };
+            ingredients = new Item[3];
+            ingredients[0] = new Item("Lemons");
+            ingredients[1] = new Item("Sugar");
+            ingredients[2] = new Item("Ice");
+            foreach(Item item in ingredients)
+            {
+                item.Quantity = 4;
+            }
 
         }
         public void Add(string ingredient)

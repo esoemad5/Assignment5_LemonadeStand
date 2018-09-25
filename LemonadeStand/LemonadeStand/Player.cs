@@ -8,6 +8,15 @@ namespace LemonadeStand
 {
     class Player
     {
-        Inventory inventory;
+        private Inventory inventory;
+        private Recipe recipe;
+        private double money;
+
+        public Player()
+        {
+            inventory = new Inventory();
+            recipe = new Recipe();
+            money = 20.00;
+        }
     }
 }
