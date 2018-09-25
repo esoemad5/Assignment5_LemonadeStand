@@ -19,18 +19,28 @@ namespace LemonadeStand
             Console.WriteLine();
             // Default 7 day game. Asking user for game length is not part of the MVP
             //
+            Player player = new Player();
+            Store store = new Store();
+            Weather weather = new Weather();
+            
+            bool playerIsReady = false;
             // Loop the following:
             while (true)
             {
                 // Preperation menu:
-                PreDayMenu m = new PreDayMenu();
-                //      Display player's inventory, recipie, money, weather, and store prices
-                m.Display(); // Will probably need to loop with this at the start of it.
-                //      Purchase supplies player.inventory.purchase(Object thing);
-                //      Define recipie
-                //      Help, continue, and end game options
-                Console.ReadLine();
-                //      Use commands like pesants quest? (throw baby)
+                playerIsReady = false;
+                while (!playerIsReady)
+                {
+                    PreDayMenu menu = new PreDayMenu(player, store, weather);
+                    //      Display player's inventory, recipie, money, weather, and store prices
+                    menu.Display();
+                    string input = Console.ReadLine();
+                    //      Purchase supplies player.inventory.purchase(Object thing);
+                    //      Define recipie
+                    //      Help, continue, and end game options
+                    //      Use commands like pesants quest? (throw baby)
+                }
+                
                 // Start day: Day day = new Day(weather);
                 //      Use player's popularity and the weather to create Customers
                 //      Each one decides to buy or not buy lemonade, customers can buy more than 1 lemonade

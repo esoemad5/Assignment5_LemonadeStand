@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class PreDayMenu
+    class PreDayMenu // The menu will get info from Player, Store, and Weather
     {
-        public void Display()
+        public PreDayMenu(Player player, Store store, Weather weather) // TODO
+        {
+
+        }
+        public void Display() // TODO
         {
 
         }
