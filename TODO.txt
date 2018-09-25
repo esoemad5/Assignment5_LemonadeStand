@@ -1,0 +1,8 @@
+Make a .txt file outlining where 2 of the SOLID design priciples were used.
+
+Game.StartGame:
+	Preperation menu, Start day, and End of day should just be seperate function calls with the indented stuff being done within those functions. Should each of those be their own class?
+
+Post-MVP:
+End of day: # of lemonades sold, customer satisfaction rate, customer feedback table
+End of game: How much money is left, how much lemonade sold, customer satisfaction, play again, etc...

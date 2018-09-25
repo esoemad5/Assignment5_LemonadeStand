@@ -23,21 +23,25 @@ namespace LemonadeStand
             while (true)
             {
                 // Preperation menu:
+                //      Display player's inventory, recipie, money, weather, and store prices
+                DisplayPreparationScreen();
                 //      Purchase supplies player.inventory.purchase(Object thing);
-                //      Display player's inventory and money
                 //      Define recipie
-                //      Display weather (forecast and actual may be different)
                 //      Help, continue, and end game options
+                Console.ReadLine();
                 //      Use commands like pesants quest? (throw baby)
                 // Start day: Day day = new Day(weather);
                 //      Use player's popularity and the weather to create Customers
                 //      Each one decides to buy or not buy lemonade, customers can buy more than 1 lemonade
                 // End of day:
                 //      Display results:  money made vs money spent that day, and total money left.
-                //      Non-MVP: # of lemonades sold, customer satisfaction rate, customer feedback table
-            break;}
+                break;
+            }
             // End of day 7, quit, or bankrupt: quit. Any post-game fedback/messages/play again options are non-MVP.
-            // Ideas for end of game stuff (non-MVP): How much money is left, how much lemonade sold, customer satisfaction, etc...
+        }
+        private void DisplayPreparationScreen()
+        {
+
         }
     }
 }
