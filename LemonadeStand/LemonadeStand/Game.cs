@@ -10,12 +10,12 @@ namespace LemonadeStand
     {
         private int gameLength;
         private string[] validInputActions;
-        private string[] validInputIngredients;
+        private string[] validInputItems;
         public Game()
         {
             gameLength = 7;
             validInputActions = new string[] { "BUY", "ADD", "REMOVE", "HELP", "QUIT", "START"};
-            validInputIngredients = new string[] { "CUPS", "LEMONS", "SUGAR", "ICE" };
+            validInputItems = new string[] { "CUPS", "LEMONS", "SUGAR", "ICE" };
 
         }
         public void StartGame()
@@ -39,7 +39,7 @@ namespace LemonadeStand
                     PreDayMenu menu = new PreDayMenu(player, store, weather);
                     //      Display player's inventory, recipie, money, weather, and store prices
                     menu.Display();
-                    string input = GetPlayerInput();
+                    string[] command = GetPlayerInput();
                     //      Purchase supplies player.inventory.purchase(Object thing);
                     //          Commands: Buy (Cups, Lemons, Sugar, Ice)
                     //      Define recipie
@@ -58,9 +58,20 @@ namespace LemonadeStand
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
 
-        private string GetPlayerInput()
+        private string[] GetPlayerInput()
         {
+            string input = Console.ReadLine();
+            string[] splitInput = input.ToUpper().Split(' ');
+            bool firstWordIsValid = false;
+            foreach(string validAction in validInputActions) // the actions and items need to be a class
+            {
+                if(splitInput[0] == validAction)
+                {
+                    firstWordIsValid = true;
+                }
+            }
 
+            return null;
         }
     }// end of class
 }
