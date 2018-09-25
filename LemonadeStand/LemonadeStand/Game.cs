@@ -23,8 +23,9 @@ namespace LemonadeStand
             while (true)
             {
                 // Preperation menu:
+                PreDayMenu m = new PreDayMenu();
                 //      Display player's inventory, recipie, money, weather, and store prices
-                DisplayPreparationScreen();
+                m.Display(); // Will probably need to loop with this at the start of it.
                 //      Purchase supplies player.inventory.purchase(Object thing);
                 //      Define recipie
                 //      Help, continue, and end game options
@@ -38,10 +39,6 @@ namespace LemonadeStand
                 break;
             }
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
-        }
-        private void DisplayPreparationScreen()
-        {
-
         }
     }
 }
