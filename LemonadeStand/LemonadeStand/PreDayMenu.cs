@@ -77,16 +77,16 @@ namespace LemonadeStand
             Console.WriteLine("Inventory:");
             for (int i = 0; i < player.Inventory.Items.Length; i++)
             {
-                Console.WriteLine("h");
-                //Console.WriteLine("{0}: {1}", player.Inventory.ItemNames[i], player.Inventory.Items[i].Count);
+                Console.WriteLine("{0}: {1}", player.Inventory.ItemNames[i], player.Inventory.Items[i].Count);
             }
 
             Console.WriteLine();
             Console.WriteLine("Store:");
 
+            Console.WriteLine();
+
 
             Console.WriteLine("Please enter input");
-            return;
         }
         private void ProcessInput(string[] command)
         {

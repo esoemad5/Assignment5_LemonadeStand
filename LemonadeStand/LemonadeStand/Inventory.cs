@@ -36,7 +36,7 @@ namespace LemonadeStand
         private string[] itemNames;
         public string[] ItemNames
         {
-            get => ItemNames;
+            get => itemNames;
         }
         public Inventory()
         {
