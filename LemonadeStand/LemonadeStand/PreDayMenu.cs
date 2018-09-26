@@ -11,11 +11,35 @@ namespace LemonadeStand
         private Player player;
         private Store store;
         private Weather weather;
+
+        private ValidInput[] actions;
+        private ValidInput[] items;
+
+
         public PreDayMenu(Player player, Store store, Weather weather) // TODO
         {
             this.player = player;
             this.store = store;
             this.weather = weather;
+
+            actions = new ValidInput[]
+            {
+                new ValidInput("Buy"),
+                new ValidInput("Add"),
+                new ValidInput("Remove"),
+                new ValidInput("Help"),
+                new ValidInput("Quit"),
+                new ValidInput("Start"),
+                new ValidInput("Change")
+            };
+            items = new ValidInput[] {
+                new ValidInput("Cups"),
+                new ValidInput("Lemons"),
+                new ValidInput("Sugar"),
+                new ValidInput("Ice"),
+                new ValidInput("Price")
+            };
+
             GetInputLoop();
         }
         private void Display() // TODO
@@ -24,7 +48,6 @@ namespace LemonadeStand
         }
         private void GetInputLoop()
         {
-            // Preperation menu:
             bool playerIsReady = false;
             while (!playerIsReady)
             {
@@ -68,5 +91,50 @@ namespace LemonadeStand
                 }
             }
         }
+
+
+        private string[] GetPlayerInput() 
+        {
+            string input = Console.ReadLine();
+            string[] splitInput = input.ToUpper().Split(' ');
+
+            if (splitInput.Length == 0 || splitInput.Length > 2)
+            {
+                return null;
+            }
+
+            string[] output = new string[splitInput.Length];
+            foreach (ValidInput action in actions)
+            {
+                if (splitInput[0].ToUpper() == action.Input.ToUpper())
+                {
+                    output[0] = splitInput[0].ToUpper();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            if (splitInput.Length == 1)
+            {
+                return output;
+            }
+
+            foreach (ValidInput item in items)
+            {
+                if (splitInput[1].ToUpper() == item.Input.ToUpper())
+                {
+                    output[1] = splitInput[1].ToUpper();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return output;
+        }
+        // Done. Should return a string[] of length 1 or 2 (all caps) which will be used to interact with the menu.
     }
 }

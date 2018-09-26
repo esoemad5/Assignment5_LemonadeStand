@@ -9,28 +9,9 @@ namespace LemonadeStand
     class Game
     {
         private int gameLength;
-        private ValidInput[] actions;
-        private ValidInput[] items;
         public Game()
         {
             gameLength = 7;
-            actions = new ValidInput[]
-            {
-                new ValidInput("Buy"),
-                new ValidInput("Add"),
-                new ValidInput("Remove"),
-                new ValidInput("Help"),
-                new ValidInput("Quit"),
-                new ValidInput("Start"),
-                new ValidInput("Change")
-            };
-            items = new ValidInput[] {
-                new ValidInput("Cups"),
-                new ValidInput("Lemons"),
-                new ValidInput("Sugar"),
-                new ValidInput("Ice"),
-                new ValidInput("Price")
-            };
 
         }
         public void StartGame()
