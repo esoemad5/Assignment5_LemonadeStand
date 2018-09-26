@@ -68,10 +68,10 @@ namespace LemonadeStand
         public void SellLemonade(Customer customer)
         {
             money += Recipe.Price;
-            inventory.Remove(new Cup());
+            inventory.Remove("Cup");
             for (int i = 0; i < recipe.Quantities[2]; i++)
             {
-                inventory.Remove(new Ice()); //Ice is per-cup, not per-pitcher. This should be communicated to the user while setting up
+                inventory.Remove("Ice"); //Ice is per-cup, not per-pitcher. This should be communicated to the user while setting up
             }
             lemonadeLeftInPitcher--; // Pitcher knows how many glasses it can fill, dont have to worry about ice levels in this line.
         }
@@ -92,7 +92,7 @@ namespace LemonadeStand
             {
                 for(int j = 0; j < recipe.Quantities[i]; j++)
                 {
-                    //inventory.Remove(recipe.Ingredients[i]);
+                    inventory.Remove(recipe.Ingredients[i]);
                 }
             }
             

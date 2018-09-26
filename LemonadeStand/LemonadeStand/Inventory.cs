@@ -69,11 +69,11 @@ namespace LemonadeStand
                     break;
             }
         }
-        public void Remove(Item item)
+        public void Remove(string item)
         {
             try
             {
-                switch (item.Name)
+                switch (item)
                 {
                     case "Lemon":
                         lemons.RemoveAt(0);
