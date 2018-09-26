@@ -119,7 +119,15 @@ namespace LemonadeStand
                 case "CHANGEPRICE":
                     Console.WriteLine("What would you like to change the price per cup to?");
                     string newPrice = Console.ReadLine();
-                    player.Recipe.ChangePrice(Convert.ToDouble(newPrice));
+                    try
+                    {
+                        player.Recipe.ChangePrice(Math.Round(Convert.ToDouble(newPrice), 2));
+                    }
+                    catch (FormatException)
+                    {
+                        message = "Price must be a number!";
+                    }
+                    
                     
                     break;
                 case "START":
