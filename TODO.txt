@@ -1,5 +1,7 @@
 DONT CALL METHODS INSIDE CONSTRUCTORS
 
+In Day.StartDay: Method to end the day. Customer class entirely. Maybe a way to store stats (post-MVP?).
+
 DONT FORGET:
 Make a .txt file outlining where 2 of the SOLID design priciples were used.
 

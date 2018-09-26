@@ -95,8 +95,8 @@ namespace LemonadeStand
                     inventory.Remove(recipe.Ingredients[i]);
                 }
             }
-            
-            //lemonadeLeftInPitcher = ???
+            // let 4 cubes make 10 glasses and 2 cubes make 14 glasses. Thus, each cube removes 2 glasses from the pitcher
+            lemonadeLeftInPitcher = 18 - (2 * recipe.Quantities[2]);
         }
     }
 }
