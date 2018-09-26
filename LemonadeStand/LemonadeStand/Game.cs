@@ -17,7 +17,7 @@ namespace LemonadeStand
         public void StartGame()
         {
             // Display intro/welcome message
-            Console.WriteLine();
+            Console.WriteLine("Welcome Message");
             // Default 7 day game. Asking user for game length is not part of the MVP
 
             Player player = new Player();

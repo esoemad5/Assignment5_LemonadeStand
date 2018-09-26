@@ -66,6 +66,15 @@ namespace LemonadeStand
         }
         private void Display() // TODO
         {
+            Console.Clear();
+
+            Console.WriteLine("Recipie:");
+            for (int i = 0; i < player.Recipe.Ingredients.Length; i++)
+            {
+                Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[i], player.Recipe.Quantities[i]);
+            }
+            
+
             Console.WriteLine("Please enter input");
             return;
         }

@@ -1,5 +1,7 @@
 DONT CALL METHODS INSIDE CONSTRUCTORS
 
+Change price (PreDayMenu.ProcessInput). Probably a function in Player class. Skipping for now. More important things to do.
+
 DONT FORGET:
 Make a .txt file outlining where 2 of the SOLID design priciples were used.
 
@@ -36,4 +38,7 @@ Perhaps only inventory should handle quantities? Not sure how to do if not using
 
 Post-MVP:
 End of day: # of lemonades sold, customer satisfaction rate, customer feedback table
+
 End of game: How much money is left, how much lemonade sold, customer satisfaction, play again, etc...
+
+PreDayMenu.Display uses 3 columns (one for Inv, Recipe, and Store)
