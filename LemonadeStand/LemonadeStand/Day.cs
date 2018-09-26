@@ -40,14 +40,17 @@ namespace LemonadeStand
                     {
                         //Day ends
                     }
-                    if (player.LemonadeLeftInPitcher == 0 && player.HasIngredientsForNewPitcherOfLemonade())
+                    if (player.LemonadeLeftInPitcher <= 0)
                     {
-                        player.MakeMoreLemonade();
-                    }
-                    else
-                    {
-                        //Day ends
-                    }
+                        if (player.HasIngredientsForNewPitcherOfLemonade())
+                        {
+                            player.MakeMoreLemonade();
+                        }
+                        else
+                        {
+                            //Day ends
+                        }
+                    } 
                 }
             }
             //Day ends
