@@ -54,6 +54,7 @@ namespace LemonadeStand
                 new ValidInput("Price")
             };
 
+            message = "Good Luck!";
             bool playerIsReady = false;
         }
         public void MainLoop()
@@ -61,7 +62,7 @@ namespace LemonadeStand
             while (!playerIsReady)
             {
                 Display();
-                string[] command = GetPlayerInput(); // Command will be null, or an array of strings (all caps) of length 1 or 2
+                string[] command = GetPlayerInput();
                 ProcessInput(command);
             }
         }
@@ -74,6 +75,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[i], player.Recipe.Quantities[i]);
             }
+            Console.WriteLine(); //price
             Console.WriteLine();
             Console.WriteLine("Inventory:");
             for (int i = 0; i < player.Inventory.Items.Length; i++)
@@ -89,9 +91,9 @@ namespace LemonadeStand
             }
 
             Console.WriteLine();
-            Console.WriteLine("You have: ${0}", player.Money);//money
+            Console.WriteLine("You have: ${0}", player.Money);
             Console.WriteLine();
-            Console.WriteLine();//weather forecast
+            Console.WriteLine("Weather forecast: {0}F and {1}", weather.Temperature, weather.Conditions);//weather forecast
 
             Console.WriteLine();
             Console.WriteLine(message);

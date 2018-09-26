@@ -8,8 +8,27 @@ namespace LemonadeStand
 {
     class Weather
     {
-        public void NewDay() // TODO
+        private int temperature;
+        public int Temperature
         {
+            get => temperature;
+        }
+        private string conditions;
+        public string Conditions
+        {
+            get => conditions;
+        }
+        private string[] possibleConditions;
+        
+        public Weather()
+        {
+            possibleConditions = new string[] { "Sunny", "Cloudy", "Rainy" };
+        }
+        public void NewDay()
+        {
+            Random rand = new Random();
+            temperature = 60 + rand.Next(40);
+            conditions = possibleConditions[rand.Next(3)];
             return;
         }
     }

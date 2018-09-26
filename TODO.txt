@@ -1,7 +1,5 @@
 DONT CALL METHODS INSIDE CONSTRUCTORS
 
-Change price (PreDayMenu.ProcessInput). Probably a function in Player class. Skipping for now. More important things to do.
-
 DONT FORGET:
 Make a .txt file outlining where 2 of the SOLID design priciples were used.
 
@@ -24,7 +22,9 @@ PreDayMenu.GetPlayerInput thinks 'add/remove cups' is valid. Cups are not part o
 
 Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
 
-PreDayMenu.Display looks funny for the store.
+Item.isAnIngredient is unused. Could be used to fix the cup bug though
+
+
 
 
 
@@ -46,3 +46,5 @@ End of day: # of lemonades sold, customer satisfaction rate, customer feedback t
 End of game: How much money is left, how much lemonade sold, customer satisfaction, play again, etc...
 
 PreDayMenu.Display uses 3 columns (one for Inv, Recipe, and Store)
+
+PreDayMenu.Display looks funny for the store.
