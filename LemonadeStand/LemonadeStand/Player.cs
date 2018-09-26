@@ -61,6 +61,12 @@ namespace LemonadeStand
             
 
         }
-
+        public void SellLemonade(Customer customer)
+        {
+            money += Recipe.Price;
+            inventory.Remove(new Cup());
+            //remove ice
+            //remove from pitcher
+        }
     }
 }
