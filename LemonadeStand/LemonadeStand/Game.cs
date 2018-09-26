@@ -67,11 +67,10 @@ namespace LemonadeStand
                         //      Define recipie
                         //          Commands: Add/Remove (Lemons, Sugar, Ice)
                         case "ADD":
-                            player.recipe.Add(command[1]); // how to deal with data privalages?
                             player.AddToRecipe(command[1]); // This is fine, even though AddToRecipie only has 1 line of code.
                             break;
                         case "REMOVE":
-                            player.recipe.Remove(command[1]); // ibid
+                            player.RemoveFromRecipe(command[1]); // ibid
                             break;
                         //      Help, continue, and end game options
                         //          Commands: Help, Quit, Start

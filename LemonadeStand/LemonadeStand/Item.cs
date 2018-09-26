@@ -6,29 +6,24 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Item
+    abstract class Item
     {
-        private string name;
+        protected string name;
         public string Name
         {
             get => name;
         }
-        private int quantity;
-        public int Quantity
-        {
-            get => quantity;
-            set => quantity = value;
-        }
-        private double price;
+        protected double price;
         public double Price
         {
             get => price;
             set => price = value;
         }
-        public Item(string name)
+        protected bool isAnIngredient;
+        public bool IsanIngredient
         {
-            this.name = name;
-            quantity = 0;
+            get => isAnIngredient;
         }
+
     }
 }

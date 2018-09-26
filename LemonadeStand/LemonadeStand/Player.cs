@@ -22,5 +22,9 @@ namespace LemonadeStand
         {
             recipe.Add(ingredient);
         }
+        public void RemoveFromRecipe(string ingredient)
+        {
+            recipe.Remove(ingredient);
+        }
     }
 }
