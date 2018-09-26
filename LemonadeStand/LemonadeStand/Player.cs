@@ -88,6 +88,14 @@ namespace LemonadeStand
         public void MakeMoreLemonade()
         {
             // take stuff out of inventory and fill pitcher to an int bassed on the Ice used in the recipe
+            for(int i = 0; i < recipe.Quantities.Length-1; i++) // Dont put ice in the pitcher (hence the -1)
+            {
+                for(int j = 0; j < recipe.Quantities[i]; j++)
+                {
+                    inventory.Remove(recipe.Ingredients[i]);
+                }
+            }
+            
             //lemonadeLeftInPitcher = ???
         }
     }
