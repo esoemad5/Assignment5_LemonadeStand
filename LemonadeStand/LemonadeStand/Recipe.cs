@@ -18,6 +18,11 @@ namespace LemonadeStand
         {
             get => quantities;
         }
+        private double price;
+        public double Price
+        {
+            get => price;
+        }
         
         public Recipe()
         {            
@@ -31,6 +36,8 @@ namespace LemonadeStand
             {
                 quantities[i] = 4;
             }
+
+            price = 0.25; // Default price of lemonade
 
         }
         public void Add(string ingredient)
@@ -57,6 +64,10 @@ namespace LemonadeStand
                     }
                 }
             }
+        }
+        public void ChangePrice(double newPrice)
+        {
+            price = newPrice;
         }
     }
 }

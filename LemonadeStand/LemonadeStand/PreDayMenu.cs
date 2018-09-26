@@ -75,7 +75,7 @@ namespace LemonadeStand
             {
                 Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[i], player.Recipe.Quantities[i]);
             }
-            Console.WriteLine(); //price
+            Console.WriteLine("Price: ${0} per cup", player.Recipe.Price); //price
             Console.WriteLine();
             Console.WriteLine("Inventory:");
             for (int i = 0; i < player.Inventory.Items.Length; i++)
@@ -117,7 +117,10 @@ namespace LemonadeStand
                     message = "You removed a " + command[1] + " from the recipe!";
                     break;
                 case "CHANGEPRICE":
-                    // Change the price/cup of lemonade
+                    Console.WriteLine("What would you like to change the price per cup to?");
+                    string newPrice = Console.ReadLine();
+                    player.Recipe.ChangePrice(Convert.ToDouble(newPrice));
+                    
                     break;
                 case "START":
                     playerIsReady = !playerIsReady;
