@@ -60,24 +60,32 @@ namespace LemonadeStand
         }
         public void Remove(Item item)
         {
-            switch (item.Name)
+            try
             {
-                case "Lemon":
-                    lemons.RemoveAt(0);
-                    break;
-                case "Sugar":
-                    sugar.RemoveAt(0);
-                    break;
-                case "Ice":
-                    ice.RemoveAt(0);
-                    break;
-                case "Cup":
-                    cups.RemoveAt(0);
-                    break;
-                default:
-                    Console.WriteLine("Error in Inventory.Add. Tried to remove an invalid item.");
-                    break;
+                switch (item.Name)
+                {
+                    case "Lemon":
+                        lemons.RemoveAt(0);
+                        break;
+                    case "Sugar":
+                        sugar.RemoveAt(0);
+                        break;
+                    case "Ice":
+                        ice.RemoveAt(0);
+                        break;
+                    case "Cup":
+                        cups.RemoveAt(0);
+                        break;
+                    default:
+                        Console.WriteLine("Error in Inventory.Add. Tried to remove an invalid item.");
+                        break;
+                }
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                return;
+            }
+            
         }
 
     }
