@@ -1,0 +1,3 @@
+In PreDayMenu.ProcessInput, some of the cases in the switch statment use try/catch and each catch block does the same thing. It would therefore be possible (and use less lines of code) to wrap the entire switch in a single try block and just use 1 catch block.
+
+If, in the future, I (or whoever would be working on the project) needed to do a specific thing for a specific exception in a specific case, they would have a tedious job ahead of them. Writing the method this way leaves it open to further improvement without forcing a large re-structuring of the code, thus following the Open/Closed Principle of SOLID
