@@ -11,11 +11,11 @@ namespace LemonadeStand
         private Item[] ingredients;
         
         public Recipe()
-        {
+        {            
             ingredients = new Item[3];
-            ingredients[0] = new Item("Lemons");
-            ingredients[1] = new Item("Sugar");
-            ingredients[2] = new Item("Ice");
+            ingredients[0] = new Lemon();
+            ingredients[1] = new Sugar();
+            ingredients[2] = new Ice();
             foreach(Item item in ingredients)
             {
                 item.Quantity = 4;

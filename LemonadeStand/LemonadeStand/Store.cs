@@ -8,18 +8,25 @@ namespace LemonadeStand
 {
     class Store
     {
-        //private Item[] stock;
-        private double[] defaultPrices;
+        private Item[] stock;
+        public Item[] Stock
+        {
+            get => stock;
+        }
         public Store()
         {
-            /*
+
             stock = new Item[4];
-            stock = new Item[3];
-            stock[0] = new Item("Lemons");
-            stock[1] = new Item("Sugar");
-            stock[2] = new Item("Ice");
-            stock[3] = new Item("Cups");
-            */
+            stock[0] = new Lemon();
+            stock[1] = new Sugar();
+            stock[2] = new Ice(); ;
+            stock[3] = new Cup();
+
+            stock[0].Price = 0.07;
+            stock[0].Price = 0.06;
+            stock[0].Price = 0.01;
+            stock[0].Price = 0.04;
+
 
         }
     }

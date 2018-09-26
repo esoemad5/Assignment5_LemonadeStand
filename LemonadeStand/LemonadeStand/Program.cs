@@ -10,11 +10,17 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            if(null == null)
+            Lemon lemon = new Lemon();
+            Cup cup = new Cup();
+            if(lemon is Lemon)
             {
                 Console.WriteLine("Hello");
             }
-            Console.WriteLine("World!");
+            
+            if(cup is Lemon)
+            {
+                Console.WriteLine("World!");
+            }
         }
     }
 }
