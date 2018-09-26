@@ -13,17 +13,6 @@ namespace LemonadeStand
             Game game = new Game();
             game.StartGame();
 
-            /*
-            Cup cup = new Cup();
-            if(cup is Lemon)
-            {
-                Console.WriteLine("Hello");
-            }
-            if(cup is Cup)
-            {
-                Console.WriteLine("World!");
-            }
-            */
         }
     }
 }

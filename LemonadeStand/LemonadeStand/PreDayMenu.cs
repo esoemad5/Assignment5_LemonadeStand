@@ -70,7 +70,7 @@ namespace LemonadeStand
         {
             Console.Clear(); // Comment this line out when debugging
 
-            Console.WriteLine("Recipie:");
+            Console.WriteLine("Recipe:");
             for (int i = 0; i < player.Recipe.Ingredients.Length; i++)
             {
                 Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[i], player.Recipe.Quantities[i]);
@@ -93,7 +93,7 @@ namespace LemonadeStand
             Console.WriteLine();
             Console.WriteLine("You have: ${0}", player.Money);
             Console.WriteLine();
-            Console.WriteLine("Weather forecast: {0}F and {1}", weather.Temperature, weather.Conditions);//weather forecast
+            Console.WriteLine("Weather forecast: {0}F and {1}.", weather.Temperature, weather.Conditions);
 
             Console.WriteLine();
             Console.WriteLine(message);
@@ -145,13 +145,6 @@ namespace LemonadeStand
                     break;
                 default:
                     break;
-            }
-        }
-        private void LogStringArray(string[] words) // test function. delete this
-        {
-            foreach(string word in words)
-            {
-                Console.WriteLine(word);
             }
         }
         private string[] GetPlayerInput() 

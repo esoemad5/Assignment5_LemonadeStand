@@ -22,21 +22,19 @@ namespace LemonadeStand
 
             Player player = new Player();
             Store store = new Store();
-            Weather weather = new Weather();
+            Weather weather;
             PreDayMenu menu;
             
             while (true)
             {
-                weather.NewDay();
+                weather = new Weather();
                 menu = new PreDayMenu(player, store, weather);
                 menu.MainLoop();
                 if (menu.PlayerWantsToQuit)
                 {
                     break;
                 }
-                // Start day: Day day = new Day(weather);
-                //      Use player's popularity and the weather to create Customers
-                //      Each one decides to buy or not buy lemonade, customers can buy more than 1 lemonade
+                // Start day: Day day = new Day(player, weather);
                 // End of day:
                 //      Display results:  money made vs money spent that day, and total money left.
                 break;

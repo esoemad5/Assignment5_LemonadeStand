@@ -23,13 +23,9 @@ namespace LemonadeStand
         public Weather()
         {
             possibleConditions = new string[] { "Sunny", "Cloudy", "Rainy" };
-        }
-        public void NewDay()
-        {
             Random rand = new Random();
             temperature = 60 + rand.Next(40);
             conditions = possibleConditions[rand.Next(3)];
-            return;
         }
     }
 }
