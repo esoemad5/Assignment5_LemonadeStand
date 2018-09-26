@@ -1,5 +1,11 @@
 DONT CALL METHODS INSIDE CONSTRUCTORS
 
+DONT FORGET:
+Make a .txt file outlining where 2 of the SOLID design priciples were used.
+
+TIMELINE:
+Goal is to finish 1) by end of Thursday (2.5 days), 2) by end of Friady (1 day), and 3) by end of Monday (1 day). Weekend can be used as catch-up, or head start on 3) to give time for some post-MVP work.
+
 Think of the game as 3 parts: pre-day, day, and end of day.
 
 1) Pre-day is probably most complex, it's where all the user input is and it needs to display a lot of info from different classes.
@@ -8,17 +14,17 @@ Think of the game as 3 parts: pre-day, day, and end of day.
 
 3) End of day needs to display data from day, but it is far less than what is shown in pre-day (just 3 things).
 
-TIMELINE:
-Goal is to finish 1) by end of Thursday (2.5 days), 2) by end of Friady (1 day), and 3) by end of Monday (1 day). Weekend can be used as catch-up, or head start on 3 to give time for some post-MVP work.
-
-DONT FORGET:
-Make a .txt file outlining where 2 of the SOLID design priciples were used.
 
 
 
+Low-priority bugs (fix after MVP is met):
+PreDayMenu.GetPlayerInput thinks 'add/remove cups' is valid. Cups are not part of the recipe. It's fine now. It could cause errors in the future, but I anticipate nothing happening when the Help message would have been displayed (which is also technically post-MVP)
 
 
-Interesting idea: make Item an abstract class and make Inventory a bunch of lists of Item children. Supports more features in the future (follows O of SOLID).
+
+
+
+Interesting idea(IMPLEMENTED): make Item an abstract class and make Inventory a bunch of lists of Item children. Supports more features in the future (follows O of SOLID).
 Perhaps only inventory should handle quantities? Not sure how to do if not using abstract Items
 
 
