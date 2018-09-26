@@ -52,8 +52,8 @@ namespace LemonadeStand
                     money -= thing.Price;
                     if(money < 0)
                     {
-                        Console.WriteLine("You dont have enough money to buy that!");
                         money += thing.Price;
+                        throw new Exception("You dont have enough money to buy that!");
                     }
                     else
                     {

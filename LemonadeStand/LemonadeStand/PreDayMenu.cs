@@ -105,8 +105,16 @@ namespace LemonadeStand
             switch (command[0])
             {
                 case "BUY":
-                    player.Buy(command[1], store);
-                    message = "You bought: " + command[1] + "!";
+                    try
+                    {
+                        player.Buy(command[1], store);
+                        message = "You bought: " + command[1] + "!";
+                    }
+                    catch(Exception e)
+                    {
+                        message = e.Message;
+                    }
+                    
                     break;
                 case "ADD":
                     try
