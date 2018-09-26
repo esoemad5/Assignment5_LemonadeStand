@@ -9,13 +9,26 @@ namespace LemonadeStand
     class Player
     {
         private Inventory inventory;
+        public Inventory Inventory
+        {
+            get => inventory;
+        }
         private Recipe recipe;
+        public Recipe Recipe
+        {
+            get => recipe;
+        }
         private double money;
+        public double Money
+        {
+            get => money;
+        }
 
         public Player()
         {
             inventory = new Inventory();
             recipe = new Recipe();
+
             money = 20.00;
         }
         public void AddToRecipe(string ingredient)

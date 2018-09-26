@@ -13,7 +13,17 @@ namespace LemonadeStand
             Game game = new Game();
             //game.StartGame();
             Player player = new Player();
-            player.AddToRecipe("LEMONS");
+            Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[0], player.Recipe.Quantities[0]);
+            player.RemoveFromRecipe("LEMONS");
+            Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[0], player.Recipe.Quantities[0]);
+            player.RemoveFromRecipe("LEMONS");
+            Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[0], player.Recipe.Quantities[0]);
+            player.RemoveFromRecipe("LEMONS");
+            Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[0], player.Recipe.Quantities[0]);
+            player.RemoveFromRecipe("LEMONS");
+            Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[0], player.Recipe.Quantities[0]);
+            player.RemoveFromRecipe("LEMONS");
+            Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[0], player.Recipe.Quantities[0]);
 
             /*
             Cup cup = new Cup();
