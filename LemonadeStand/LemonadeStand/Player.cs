@@ -23,7 +23,11 @@ namespace LemonadeStand
         {
             get => money;
         }
-
+        private int lemonadeLeftInPitcher;
+        public int LemonadeLeftInPitcher
+        {
+            get => lemonadeLeftInPitcher;
+        }
         public Player()
         {
             inventory = new Inventory();
@@ -65,8 +69,11 @@ namespace LemonadeStand
         {
             money += Recipe.Price;
             inventory.Remove(new Cup());
-            //remove ice
-            //remove from pitcher
+            for (int i = 0; i < recipe.Quantities[2]; i++)
+            {
+                inventory.Remove(new Ice());
+            }
+            // remove lemonade from pitcher. Inversely proportionate to Ice used.
         }
     }
 }

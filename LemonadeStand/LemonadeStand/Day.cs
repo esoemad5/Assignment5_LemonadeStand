@@ -29,6 +29,10 @@ namespace LemonadeStand
                 if(true/*some condition*/)
                 {
                     player.SellLemonade(customers[i]);
+                    if (player.LemonadeLeftInPitcher == 0)
+                    {
+                        player.MakeMoreLemonade();
+                    }
                 }
             }
             //      If customer buys lemonade, Player.pitcherOfLemonade--, Player.Inventory.Cups--
