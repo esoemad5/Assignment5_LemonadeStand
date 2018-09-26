@@ -8,34 +8,39 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        private List<Lemon> lemons;
+        private List<Item> lemons;
         public int Lemons
         {
             get { return lemons.Count; }
         }
-        private List<Sugar> sugar;
+        private List<Item> sugar;
         public int Sugar
         {
             get { return sugar.Count; }
         }
-        private List<Ice> ice;
+        private List<Item> ice;
         public int Ice
         {
             get { return ice.Count; }
         }
-        private List<Cup> cups;
+        private List<Item> cups;
         public int Cups
         {
             get { return cups.Count; }
         }
-
-
+        private List<Item>[] items;
+        public List<Item>[] Items
+        {
+            get => items;
+        }
         public Inventory()
         {
-            lemons = new List<Lemon>();
-            sugar = new List<Sugar>();
-            ice = new List<Ice>();
-            cups = new List<Cup>();
+            lemons = new List<Item>();
+            sugar = new List<Item>();
+            ice = new List<Item>();
+            cups = new List<Item>();
+
+            items = new List<Item>[] { lemons, sugar, ice, cups };
         }
         public void Add(Item item)
         {

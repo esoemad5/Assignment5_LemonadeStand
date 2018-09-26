@@ -73,7 +73,16 @@ namespace LemonadeStand
             {
                 Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[i], player.Recipe.Quantities[i]);
             }
-            
+            Console.WriteLine();
+            Console.WriteLine("Inventory:");
+            for (int i = 0; ; i++)
+            {
+
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Store:");
+
 
             Console.WriteLine("Please enter input");
             return;
