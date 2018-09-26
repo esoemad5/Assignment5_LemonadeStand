@@ -92,7 +92,7 @@ namespace LemonadeStand
             {
                 for(int j = 0; j < recipe.Quantities[i]; j++)
                 {
-                    inventory.Remove(recipe.Ingredients[i]);
+                    //inventory.Remove(recipe.Ingredients[i]);
                 }
             }
             

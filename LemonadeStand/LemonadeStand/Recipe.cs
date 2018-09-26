@@ -50,6 +50,7 @@ namespace LemonadeStand
                     return;
                 }
             }
+            throw new Exception("Can only remove Lemon, Sugar and Ice from the recipe!");
         }
         public void Remove(string ingredient)
         {
@@ -64,6 +65,7 @@ namespace LemonadeStand
                     }
                 }
             }
+            throw new Exception("Can only remove Lemon, Sugar and Ice from the recipe!");
         }
         public void ChangePrice(double newPrice)
         {

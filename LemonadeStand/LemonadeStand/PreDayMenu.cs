@@ -109,12 +109,26 @@ namespace LemonadeStand
                     message = "You bought: " + command[1] + "!";
                     break;
                 case "ADD":
-                    player.AddToRecipe(command[1]);
-                    message = "You added a " + command[1] + " to the recipe!"; 
+                    try
+                    {
+                        player.AddToRecipe(command[1]);
+                        message = "You added a " + command[1] + " to the recipe!";
+                    }
+                    catch (Exception e)
+                    {
+                        message = e.Message;
+                    }
                     break;
                 case "REMOVE":
-                    player.RemoveFromRecipe(command[1]);
-                    message = "You removed a " + command[1] + " from the recipe!";
+                    try
+                    {
+                        player.RemoveFromRecipe(command[1]);
+                        message = "You removed a " + command[1] + " from the recipe!";
+                    }
+                    catch(Exception e)
+                    {
+                        message = e.Message;
+                    }
                     break;
                 case "CHANGEPRICE":
                     Console.WriteLine("What would you like to change the price per cup to?");
@@ -127,8 +141,6 @@ namespace LemonadeStand
                     {
                         message = "Price must be a number!";
                     }
-                    
-                    
                     break;
                 case "START":
                     playerIsReady = !playerIsReady;
