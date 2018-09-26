@@ -26,5 +26,26 @@ namespace LemonadeStand
         {
             recipe.Remove(ingredient);
         }
+        public void Buy(string item, Store store)
+        {
+            foreach(Item thing in store.Stock)
+            {
+                if (thing.Name == item)
+                {
+                    money -= thing.Price;
+                    if(money < 0)
+                    {
+                        Console.WriteLine("You dont have enough money to buy that!");
+                    }
+                    else
+                    {
+                        inventory.Add(thing);
+                    }
+                    
+                }
+            }
+            
+
+        }
     }
 }
