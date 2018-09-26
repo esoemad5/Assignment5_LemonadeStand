@@ -16,6 +16,12 @@ namespace LemonadeStand
         private ValidInput[] actionsThatRequireAnItem;
         private ValidInput[] items;
 
+        private bool playerWantsToQuit;
+        public bool PlayerWantsToQuit
+        {
+            get => playerWantsToQuit;
+        }
+
 
         public PreDayMenu(Player player, Store store, Weather weather) // TODO
         {
@@ -62,10 +68,8 @@ namespace LemonadeStand
                 string[] command = GetPlayerInput();
                 switch (command[0])
                 {
-                    //      Purchase supplies player.inventory.purchase(Object thing);
-                    //          Commands: Buy (Cups, Lemons, Sugar, Ice)
                     case "BUY":
-                        // player.Buy(command[1]);
+                        player.Buy(command[1], store);
                         break;
                     case "ADD":
                         player.AddToRecipe(command[1]);
@@ -73,8 +77,6 @@ namespace LemonadeStand
                     case "REMOVE":
                         player.RemoveFromRecipe(command[1]);
                         break;
-                    //      Help, continue, and end game options
-                    //          Commands: Help, Quit, Start
                     case "CHANGEPRICE":
                         // Change the price/cup of lemonade
                         break;
@@ -82,7 +84,8 @@ namespace LemonadeStand
                         playerIsReady = !playerIsReady;
                         break;
                     case "QUIT":
-                        // Break out of loop and go to end of game
+                        playerWantsToQuit = true;
+                        return;
                         break;
                     case "HELP":
                         // Console.write ValidInput descriptions (kinda post-MVP, but the player does need to learn the commands at some point

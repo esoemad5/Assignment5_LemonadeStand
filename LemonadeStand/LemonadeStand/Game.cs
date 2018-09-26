@@ -25,12 +25,14 @@ namespace LemonadeStand
             Weather weather = new Weather();
             PreDayMenu menu;
             
-            
-            // Loop the following:
             while (true)
             {
                 weather.NewDay();
                 menu = new PreDayMenu(player, store, weather);
+                if (menu.PlayerWantsToQuit)
+                {
+                    break;
+                }
 
                 
                 
