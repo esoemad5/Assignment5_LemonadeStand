@@ -29,14 +29,16 @@ namespace LemonadeStand
                 if(true/*some condition*/)
                 {
                     player.SellLemonade(customers[i]);
-                    if (player.LemonadeLeftInPitcher == 0)
+                    if(player.Inventory.Cups == 0)
+                    {
+                        //Day ends
+                    }
+                    if (player.LemonadeLeftInPitcher == 0 && player.HasIngredientsForNewPitcherOfLemonade())
                     {
                         player.MakeMoreLemonade();
                     }
                 }
             }
-            //      If customer buys lemonade, Player.pitcherOfLemonade--, Player.Inventory.Cups--
-            //      if Player.Inventory.Cups == 0 , end day
             //      If Player.pitcherOfLemonade == 0, Player.RefilPitcher
             //              check if have ingredients. if so, remove from inventory and fill pitcher
             //                  if not, day ends. Store how many customers wanted to buy after stock-out?

@@ -73,7 +73,15 @@ namespace LemonadeStand
             {
                 inventory.Remove(new Ice());
             }
-            // remove lemonade from pitcher. Inversely proportionate to Ice used.
+            lemonadeLeftInPitcher--; // Pitcher knows how many glasses it can fill, dont have to worry about ice levels in this line.
+        }
+        public bool HasIngredientsForNewPitcherOfLemonade()
+        {
+            return true;
+        }
+        public void MakeMoreLemonade()
+        {
+            // take stuff out of inventory and fill pitcher to an int bassed on the Ice used in the recipe
         }
     }
 }
