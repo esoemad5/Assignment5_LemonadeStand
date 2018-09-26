@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class PreDayMenu // The menu will get info from Player, Store, and Weather
+    class PreDayMenu
     {
         private Player player;
         private Store store;
@@ -21,6 +21,7 @@ namespace LemonadeStand
         {
             get => playerWantsToQuit;
         }
+        bool playerIsReady;
 
 
         public PreDayMenu(Player player, Store store, Weather weather) // TODO
@@ -51,50 +52,57 @@ namespace LemonadeStand
                 new ValidInput("Price")
             };
 
+            bool playerIsReady = false;
             GetInputLoop();
         }
         private void Display() // TODO
         {
-
+            Console.WriteLine("Please enter input");
+            return;
         }
         private void GetInputLoop()
         {
-            bool playerIsReady = false;
+            
             while (!playerIsReady)
             {
-                PreDayMenu menu = new PreDayMenu(player, store, weather);
-                //      Display player's inventory, recipie, money, weather, and store prices
-                menu.Display();
-                string[] command = GetPlayerInput();
-                switch (command[0])
+                Display();
+                string[] command = GetPlayerInput(); // Command will be null, or an array of strings (all caps) of length 1 or 2
+                foreach(string a in command)
                 {
-                    case "BUY":
-                        player.Buy(command[1], store);
-                        break;
-                    case "ADD":
-                        player.AddToRecipe(command[1]);
-                        break;
-                    case "REMOVE":
-                        player.RemoveFromRecipe(command[1]);
-                        break;
-                    case "CHANGEPRICE":
-                        // Change the price/cup of lemonade
-                        break;
-                    case "START":
-                        playerIsReady = !playerIsReady;
-                        break;
-                    case "QUIT":
-                        playerWantsToQuit = true;
-                        return;
-                        break;
-                    case "HELP":
-                        // Console.write ValidInput descriptions (kinda post-MVP, but the player does need to learn the commands at some point
-                        break;
-                    case null:
-                    // Display help message. Do a fall-through??
-                    default:
-                        break;
+                    Console.WriteLine(a);
                 }
+                ProcessInput(command);
+            }
+        }
+        private void ProcessInput(string[] command)
+        {
+            switch (command[0])
+            {
+                case "BUY":
+                    player.Buy(command[1], store);
+                    break;
+                case "ADD":
+                    player.AddToRecipe(command[1]);
+                    break;
+                case "REMOVE":
+                    player.RemoveFromRecipe(command[1]);
+                    break;
+                case "CHANGEPRICE":
+                    // Change the price/cup of lemonade
+                    break;
+                case "START":
+                    playerIsReady = !playerIsReady;
+                    break;
+                case "QUIT":
+                    playerWantsToQuit = true;
+                    return;
+                case "HELP":
+                    // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
+                    break;
+                case null:
+                // Display help message. Do a fall-through??
+                default:
+                    break;
             }
         }
 
@@ -104,10 +112,11 @@ namespace LemonadeStand
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
             string[] output = new string[splitInput.Length];
+            output[0] = "HELP";
 
             if (splitInput.Length == 0 || splitInput.Length > 2)
             {
-                return null;
+                return output;
             }
 
             if (splitInput.Length == 1)
@@ -120,7 +129,7 @@ namespace LemonadeStand
                     }
                     else
                     {
-                        return null;
+                        return output;
                     }
                 }
                 return output;
@@ -135,7 +144,7 @@ namespace LemonadeStand
                     }
                     else
                     {
-                        return null;
+                        return output;
                     }
                 }
 
@@ -147,7 +156,8 @@ namespace LemonadeStand
                     }
                     else
                     {
-                        return null;
+                        output[0] = "HELP";
+                        return output;
                     }
                 }
                 return output;

@@ -18,7 +18,7 @@ namespace LemonadeStand
             ingredients[2] = new Ice();
             foreach(Item item in ingredients)
             {
-                item.Quantity = 4;
+                //item.Quantity = 4;
             }
 
         }
@@ -28,7 +28,7 @@ namespace LemonadeStand
             {
                 if(ingredients[i].Name == ingredient)
                 {
-                    ingredients[i].Quantity++;
+                    //ingredients[i].Quantity++;
                 }
             }
         }
@@ -38,7 +38,7 @@ namespace LemonadeStand
             {
                 if (ingredients[i].Name == ingredient)
                 {
-                    ingredients[i].Quantity--;
+                    //ingredients[i].Quantity--;
                 }
             }
         }

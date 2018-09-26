@@ -46,49 +46,6 @@ namespace LemonadeStand
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
 
-        private string[] GetPlayerInput() // Done. Should return a string[] of length 1 or 2 (all caps) which will be used to interact with the menu.
-        {
-            string input = Console.ReadLine();
-            string[] splitInput = input.ToUpper().Split(' ');
-
-            if(splitInput.Length == 0 || splitInput.Length > 2)
-            {
-                return null;
-            }
-
-            string[] output = new string[splitInput.Length];
-            foreach(ValidInput action in actions)
-            {
-                if(splitInput[0].ToUpper() == action.Input.ToUpper())
-                {
-                    output[0] = splitInput[0].ToUpper();
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
-            if(splitInput.Length == 1)
-            {
-                return output;
-            }
-
-            foreach(ValidInput item in items)
-            {
-                if (splitInput[1].ToUpper() == item.Input.ToUpper())
-                {
-                    output[1] = splitInput[1].ToUpper();
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
-            return output;
-        }
-
-
+        
     }// end of class
 }
