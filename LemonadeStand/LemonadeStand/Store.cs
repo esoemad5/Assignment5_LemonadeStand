@@ -23,9 +23,9 @@ namespace LemonadeStand
             stock[3] = new Cup();
 
             stock[0].Price = 0.07;
-            stock[0].Price = 0.06;
-            stock[0].Price = 0.01;
-            stock[0].Price = 0.04;
+            stock[1].Price = 0.06;
+            stock[2].Price = 0.01;
+            stock[3].Price = 0.04;
 
 
         }

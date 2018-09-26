@@ -23,6 +23,8 @@ namespace LemonadeStand
         }
         bool playerIsReady;
 
+        private string message;
+
 
         public PreDayMenu(Player player, Store store, Weather weather) // TODO
         {
@@ -60,8 +62,8 @@ namespace LemonadeStand
             {
                 Display();
                 string[] command = GetPlayerInput(); // Command will be null, or an array of strings (all caps) of length 1 or 2
-                LogStringArray(command); //delete this
-                //ProcessInput(command);
+                //LogStringArray(command); //delete this
+                ProcessInput(command);
             }
         }
         private void Display() // TODO
@@ -82,11 +84,15 @@ namespace LemonadeStand
 
             Console.WriteLine();
             Console.WriteLine("Store:");
+            for(int i = 0; i < store.Stock.Length; i++)
+            {
+                Console.WriteLine("{1} per {0}", store.Stock[i].Name, store.Stock[i].Price);
+            }
 
             Console.WriteLine();
-
-
-            Console.WriteLine("Please enter input");
+            Console.WriteLine(message);
+            Console.WriteLine();
+            Console.WriteLine("What would you like to do? (type Help for options)");
         }
         private void ProcessInput(string[] command)
         {
@@ -113,6 +119,9 @@ namespace LemonadeStand
                 case "HELP":
                     // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
                     break;
+                case "BAD":
+                    message = "That command is not recognized. Enter 'Help' to see a list of commands.";
+                    break;
                 default:
                     break;
             }
@@ -129,7 +138,7 @@ namespace LemonadeStand
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
             string[] output = new string[splitInput.Length];
-            output[0] = "HELP";
+            output[0] = "BAD";
             if (splitInput.Length > 2)
             {
                 return output;
@@ -165,7 +174,7 @@ namespace LemonadeStand
                         return output;
                     }
                 }
-                output[0] = "HELP";
+                output[0] = "BAD";
                 return output;
             }            
         }
