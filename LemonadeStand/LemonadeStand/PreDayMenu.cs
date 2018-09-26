@@ -53,26 +53,21 @@ namespace LemonadeStand
             };
 
             bool playerIsReady = false;
-            GetInputLoop();
+        }
+        public void MainLoop()
+        {
+            while (!playerIsReady)
+            {
+                Display();
+                string[] command = GetPlayerInput(); // Command will be null, or an array of strings (all caps) of length 1 or 2
+                LogStringArray(command); //delete this
+                //ProcessInput(command);
+            }
         }
         private void Display() // TODO
         {
             Console.WriteLine("Please enter input");
             return;
-        }
-        private void GetInputLoop()
-        {
-            
-            while (!playerIsReady)
-            {
-                Display();
-                string[] command = GetPlayerInput(); // Command will be null, or an array of strings (all caps) of length 1 or 2
-                foreach(string a in command)
-                {
-                    Console.WriteLine(a);
-                }
-                ProcessInput(command);
-            }
         }
         private void ProcessInput(string[] command)
         {
@@ -105,16 +100,20 @@ namespace LemonadeStand
                     break;
             }
         }
-
-
+        private void LogStringArray(string[] words) // test function. delete this
+        {
+            foreach(string word in words)
+            {
+                Console.WriteLine(word);
+            }
+        }
         private string[] GetPlayerInput() 
         {
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
             string[] output = new string[splitInput.Length];
             output[0] = "HELP";
-
-            if (splitInput.Length == 0 || splitInput.Length > 2)
+            if (splitInput.Length > 2)
             {
                 return output;
             }
@@ -126,9 +125,6 @@ namespace LemonadeStand
                     if (splitInput[0] == action.Input.ToUpper())
                     {
                         output[0] = splitInput[0];
-                    }
-                    else
-                    {
                         return output;
                     }
                 }
@@ -142,10 +138,6 @@ namespace LemonadeStand
                     {
                         output[0] = splitInput[0];
                     }
-                    else
-                    {
-                        return output;
-                    }
                 }
 
                 foreach (ValidInput item in items)
@@ -153,16 +145,12 @@ namespace LemonadeStand
                     if (splitInput[1].ToUpper() == item.Input.ToUpper())
                     {
                         output[1] = splitInput[1].ToUpper();
-                    }
-                    else
-                    {
-                        output[0] = "HELP";
                         return output;
                     }
                 }
+                output[0] = "HELP";
                 return output;
             }            
         }
-        // Done. Should return a string[] of length 1 or 2 (all caps) which will be used to interact with the menu.
     }
 }

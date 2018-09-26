@@ -1,3 +1,5 @@
+DONT CALL METHODS INSIDE CONSTRUCTORS
+
 Think of the game as 3 parts: pre-day, day, and end of day.
 
 1) Pre-day is probably most complex, it's where all the user input is and it needs to display a lot of info from different classes.
@@ -13,9 +15,6 @@ DONT FORGET:
 Make a .txt file outlining where 2 of the SOLID design priciples were used.
 
 
-
-Game.StartGame:
-	Preperation menu, Start day, and End of day should just be seperate function calls with the indented stuff being done within those functions. Should each of those be their own class? YES!
 
 
 
