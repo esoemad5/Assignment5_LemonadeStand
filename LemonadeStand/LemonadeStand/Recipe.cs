@@ -8,17 +8,20 @@ namespace LemonadeStand
 {
     class Recipe
     {
-        private Item[] ingredients;
+        private string[] ingredients;
+        private int[] quantities;
         
         public Recipe()
         {            
-            ingredients = new Item[3];
-            ingredients[0] = new Lemon();
-            ingredients[1] = new Sugar();
-            ingredients[2] = new Ice();
-            foreach(Item item in ingredients)
+            ingredients = new string[3];
+            ingredients[0] = "LEMONS";
+            ingredients[1] = "SUGAR";
+            ingredients[2] = "ICE";
+
+            quantities = new int[3];
+            for (int i = 0; i < quantities.Length; i++)
             {
-                //item.Quantity = 4;
+                quantities[i] = 4;
             }
 
         }
@@ -26,9 +29,10 @@ namespace LemonadeStand
         {
             for(int i = 0; i < ingredients.Length; i++)
             {
-                if(ingredients[i].Name == ingredient)
+                if(ingredients[i] == ingredient)
                 {
-                    //ingredients[i].Quantity++;
+                    quantities[i]++;
+                    return;
                 }
             }
         }
@@ -36,9 +40,13 @@ namespace LemonadeStand
         {
             for (int i = 0; i < ingredients.Length; i++)
             {
-                if (ingredients[i].Name == ingredient)
+                if (ingredients[i] == ingredient)
                 {
-                    //ingredients[i].Quantity--;
+                    if(quantities[i] != 0)
+                    {
+                        quantities[i]--;
+                        return;
+                    }
                 }
             }
         }
