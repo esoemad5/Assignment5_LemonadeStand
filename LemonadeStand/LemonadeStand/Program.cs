@@ -12,7 +12,8 @@ namespace LemonadeStand
         {
             Game game = new Game();
             //game.StartGame();
-
+            Player player = new Player();
+            player.AddToRecipe("LEMONS");
 
             /*
             Cup cup = new Cup();

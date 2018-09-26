@@ -9,14 +9,22 @@ namespace LemonadeStand
     class Recipe
     {
         private string[] ingredients;
+        public string[] Ingredients
+        {
+            get => ingredients;
+        }
         private int[] quantities;
+        public int[] Quantities
+        {
+            get => quantities;
+        }
         
         public Recipe()
         {            
             ingredients = new string[3];
-            ingredients[0] = "LEMONS";
-            ingredients[1] = "SUGAR";
-            ingredients[2] = "ICE";
+            ingredients[0] = "Lemons";
+            ingredients[1] = "Sugar";
+            ingredients[2] = "Ice";
 
             quantities = new int[3];
             for (int i = 0; i < quantities.Length; i++)
@@ -29,7 +37,7 @@ namespace LemonadeStand
         {
             for(int i = 0; i < ingredients.Length; i++)
             {
-                if(ingredients[i] == ingredient)
+                if(ingredients[i].ToLower() == ingredient.ToLower())
                 {
                     quantities[i]++;
                     return;
@@ -40,7 +48,7 @@ namespace LemonadeStand
         {
             for (int i = 0; i < ingredients.Length; i++)
             {
-                if (ingredients[i] == ingredient)
+                if (ingredients[i].ToLower() == ingredient.ToLower())
                 {
                     if(quantities[i] != 0)
                     {
