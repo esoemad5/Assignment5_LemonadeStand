@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Player
     {
-        public Inventory inventory; // change back to private after testing
+        private Inventory inventory; // change back to private after testing
         private Recipe recipe;
         private double money;
 

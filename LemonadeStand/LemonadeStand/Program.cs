@@ -12,11 +12,8 @@ namespace LemonadeStand
         {
             Game game = new Game();
             //game.StartGame();
-            Player test = new Player();
-            test.inventory.Remove(new Lemon());
-            
-            
-            
+
+
             /*
             Cup cup = new Cup();
             if(cup is Lemon)
