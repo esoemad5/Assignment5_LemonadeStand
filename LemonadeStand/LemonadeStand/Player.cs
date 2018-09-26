@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Player
     {
-        private Inventory inventory;
+        public Inventory inventory; // change back to private after testing
         private Recipe recipe;
         private double money;
 
@@ -26,16 +26,17 @@ namespace LemonadeStand
         {
             recipe.Remove(ingredient);
         }
-        public void Buy(string item, Store store)
+        public void Buy(string itemToPurchase, Store store)
         {
             foreach(Item thing in store.Stock)
             {
-                if (thing.Name == item)
+                if (thing.Name == itemToPurchase)
                 {
                     money -= thing.Price;
                     if(money < 0)
                     {
                         Console.WriteLine("You dont have enough money to buy that!");
+                        money += thing.Price;
                     }
                     else
                     {

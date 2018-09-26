@@ -94,8 +94,6 @@ namespace LemonadeStand
                 case "HELP":
                     // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
                     break;
-                case null:
-                // Display help message. Do a fall-through??
                 default:
                     break;
             }

@@ -11,7 +11,23 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
             Game game = new Game();
-            game.StartGame();
+            //game.StartGame();
+            Player test = new Player();
+            test.inventory.Remove(new Lemon());
+            
+            
+            
+            /*
+            Cup cup = new Cup();
+            if(cup is Lemon)
+            {
+                Console.WriteLine("Hello");
+            }
+            if(cup is Cup)
+            {
+                Console.WriteLine("World!");
+            }
+            */
         }
     }
 }
