@@ -22,7 +22,7 @@ namespace LemonadeStand
         public Recipe()
         {            
             ingredients = new string[3];
-            ingredients[0] = "Lemons";
+            ingredients[0] = "Lemon";
             ingredients[1] = "Sugar";
             ingredients[2] = "Ice";
 

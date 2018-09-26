@@ -43,7 +43,7 @@ namespace LemonadeStand
         {
             foreach(Item thing in store.Stock)
             {
-                if (thing.Name == itemToPurchase)
+                if (thing.Name.ToUpper() == itemToPurchase)
                 {
                     money -= thing.Price;
                     if(money < 0)

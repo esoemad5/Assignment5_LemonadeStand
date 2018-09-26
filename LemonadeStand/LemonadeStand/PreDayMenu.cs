@@ -47,8 +47,8 @@ namespace LemonadeStand
                 new ValidInput("Remove"),
             };
             items = new ValidInput[] {
-                new ValidInput("Cups"),
-                new ValidInput("Lemons"),
+                new ValidInput("Cup"),
+                new ValidInput("Lemon"),
                 new ValidInput("Sugar"),
                 new ValidInput("Ice"),
                 new ValidInput("Price")
@@ -62,13 +62,12 @@ namespace LemonadeStand
             {
                 Display();
                 string[] command = GetPlayerInput(); // Command will be null, or an array of strings (all caps) of length 1 or 2
-                //LogStringArray(command); //delete this
                 ProcessInput(command);
             }
         }
         private void Display()
         {
-            Console.Clear();
+            Console.Clear(); // Comment this line out when debugging
 
             Console.WriteLine("Recipie:");
             for (int i = 0; i < player.Recipe.Ingredients.Length; i++)
