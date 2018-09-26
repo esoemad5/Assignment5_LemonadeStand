@@ -21,15 +21,22 @@ namespace LemonadeStand
         public void StartDay()
         {
             // Use the weather to create Customers
-            // Player makes a pitcher of lemonade
-            // each pitcher makes X number of cups, depending on how much ice per cup (need to come up with an equation for this)
-            // Each one decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
-            for(int i = 0; i < customers.Count; i++)
+
+            if (player.HasIngredientsForNewPitcherOfLemonade() && player.Inventory.Cups > 0 && player.Inventory.Ice > player.Recipe.Quantities[2]) // Make 1st pitcher of lemonade for the day
+            {
+                player.MakeMoreLemonade();
+            }
+            else
+            {
+                //Day ends
+            }
+            // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
+            for (int i = 0; i < customers.Count; i++)
             {
                 if(true/*some condition*/)
                 {
                     player.SellLemonade(customers[i]);
-                    if(player.Inventory.Cups == 0)
+                    if(player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])
                     {
                         //Day ends
                     }
@@ -37,12 +44,13 @@ namespace LemonadeStand
                     {
                         player.MakeMoreLemonade();
                     }
+                    else
+                    {
+                        //Day ends
+                    }
                 }
             }
-            //      If Player.pitcherOfLemonade == 0, Player.RefilPitcher
-            //              check if have ingredients. if so, remove from inventory and fill pitcher
-            //                  if not, day ends. Store how many customers wanted to buy after stock-out?
-            // After all customers pass by, day ends.
+            //Day ends
         }
     }
 }

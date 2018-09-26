@@ -71,17 +71,24 @@ namespace LemonadeStand
             inventory.Remove(new Cup());
             for (int i = 0; i < recipe.Quantities[2]; i++)
             {
-                inventory.Remove(new Ice());
+                inventory.Remove(new Ice()); //Ice is per-cup, not per-pitcher. This should be communicated to the user while setting up
             }
             lemonadeLeftInPitcher--; // Pitcher knows how many glasses it can fill, dont have to worry about ice levels in this line.
         }
-        public bool HasIngredientsForNewPitcherOfLemonade()
+        public bool HasIngredientsForNewPitcherOfLemonade() // TO be used in tandem with MakeMoreLemonade.
         {
-            return true;
+            if(inventory.Lemons >= recipe.Quantities[0] && inventory.Sugar >= recipe.Quantities[1])
+            {
+                return true;
+            }
+            return false;
+
+            
         }
         public void MakeMoreLemonade()
         {
             // take stuff out of inventory and fill pitcher to an int bassed on the Ice used in the recipe
+            //lemonadeLeftInPitcher = ???
         }
     }
 }
