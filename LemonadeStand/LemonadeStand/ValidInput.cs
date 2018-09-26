@@ -24,5 +24,6 @@ namespace LemonadeStand
             this.input = input;
             description = "No description has been written for this command/item";
         }
+        
     }
 }

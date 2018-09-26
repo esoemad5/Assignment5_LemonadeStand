@@ -12,7 +12,8 @@ namespace LemonadeStand
         private Store store;
         private Weather weather;
 
-        private ValidInput[] actions;
+        private ValidInput[] actionsThatDontRequireAnItem;
+        private ValidInput[] actionsThatRequireAnItem;
         private ValidInput[] items;
 
 
@@ -22,15 +23,19 @@ namespace LemonadeStand
             this.store = store;
             this.weather = weather;
 
-            actions = new ValidInput[]
+            actionsThatDontRequireAnItem = new ValidInput[]
+            {
+                
+                new ValidInput("Help"),
+                new ValidInput("Quit"),
+                new ValidInput("Start"),
+                new ValidInput("ChangePrice")
+            };
+            actionsThatRequireAnItem = new ValidInput[]
             {
                 new ValidInput("Buy"),
                 new ValidInput("Add"),
                 new ValidInput("Remove"),
-                new ValidInput("Help"),
-                new ValidInput("Quit"),
-                new ValidInput("Start"),
-                new ValidInput("Change")
             };
             items = new ValidInput[] {
                 new ValidInput("Cups"),
@@ -62,17 +67,15 @@ namespace LemonadeStand
                     case "BUY":
                         // player.Buy(command[1]);
                         break;
-                    //      Define recipie
-                    //          Commands: Add/Remove (Lemons, Sugar, Ice)
                     case "ADD":
-                        player.AddToRecipe(command[1]); // This is fine, even though AddToRecipie only has 1 line of code.
+                        player.AddToRecipe(command[1]);
                         break;
                     case "REMOVE":
-                        player.RemoveFromRecipe(command[1]); // ibid
+                        player.RemoveFromRecipe(command[1]);
                         break;
                     //      Help, continue, and end game options
                     //          Commands: Help, Quit, Start
-                    case "CHANGE":
+                    case "CHANGEPRICE":
                         // Change the price/cup of lemonade
                         break;
                     case "START":
@@ -97,43 +100,55 @@ namespace LemonadeStand
         {
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
+            string[] output = new string[splitInput.Length];
 
             if (splitInput.Length == 0 || splitInput.Length > 2)
             {
                 return null;
             }
 
-            string[] output = new string[splitInput.Length];
-            foreach (ValidInput action in actions)
-            {
-                if (splitInput[0].ToUpper() == action.Input.ToUpper())
-                {
-                    output[0] = splitInput[0].ToUpper();
-                }
-                else
-                {
-                    return null;
-                }
-            }
-
             if (splitInput.Length == 1)
             {
+                foreach (ValidInput action in actionsThatDontRequireAnItem)
+                {
+                    if (splitInput[0] == action.Input.ToUpper())
+                    {
+                        output[0] = splitInput[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
                 return output;
             }
-
-            foreach (ValidInput item in items)
+            else
             {
-                if (splitInput[1].ToUpper() == item.Input.ToUpper())
+                foreach (ValidInput action in actionsThatRequireAnItem)
                 {
-                    output[1] = splitInput[1].ToUpper();
+                    if (splitInput[0] == action.Input.ToUpper())
+                    {
+                        output[0] = splitInput[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                else
-                {
-                    return null;
-                }
-            }
 
-            return output;
+                foreach (ValidInput item in items)
+                {
+                    if (splitInput[1].ToUpper() == item.Input.ToUpper())
+                    {
+                        output[1] = splitInput[1].ToUpper();
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                return output;
+            }            
         }
         // Done. Should return a string[] of length 1 or 2 (all caps) which will be used to interact with the menu.
     }
