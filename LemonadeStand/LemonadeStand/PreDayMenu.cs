@@ -75,9 +75,10 @@ namespace LemonadeStand
             }
             Console.WriteLine();
             Console.WriteLine("Inventory:");
-            for (int i = 0; ; i++)
+            for (int i = 0; i < player.Inventory.Items.Length; i++)
             {
-
+                Console.WriteLine("h");
+                //Console.WriteLine("{0}: {1}", player.Inventory.ItemNames[i], player.Inventory.Items[i].Count);
             }
 
             Console.WriteLine();

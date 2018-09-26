@@ -33,6 +33,11 @@ namespace LemonadeStand
         {
             get => items;
         }
+        private string[] itemNames;
+        public string[] ItemNames
+        {
+            get => ItemNames;
+        }
         public Inventory()
         {
             lemons = new List<Item>();
@@ -41,6 +46,7 @@ namespace LemonadeStand
             cups = new List<Item>();
 
             items = new List<Item>[] { lemons, sugar, ice, cups };
+            itemNames = new string[] { "Lemons", "Sugar", "Ice", "Cups" };
         }
         public void Add(Item item)
         {

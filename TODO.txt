@@ -21,6 +21,7 @@ Think of the game as 3 parts: pre-day, day, and end of day.
 
 Low-priority bugs (fix after MVP is met):
 PreDayMenu.GetPlayerInput thinks 'add/remove cups' is valid. Cups are not part of the recipe. It's fine now. It could cause errors in the future, but I anticipate nothing happening when the Help message would have been displayed (which is also technically post-MVP)
+Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
 
 
 
