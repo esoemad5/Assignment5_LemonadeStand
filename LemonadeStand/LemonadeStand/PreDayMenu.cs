@@ -26,7 +26,7 @@ namespace LemonadeStand
         private string message;
 
 
-        public PreDayMenu(Player player, Store store, Weather weather) // TODO
+        public PreDayMenu(Player player, Store store, Weather weather)
         {
             this.player = player;
             this.store = store;
@@ -66,7 +66,7 @@ namespace LemonadeStand
                 ProcessInput(command);
             }
         }
-        private void Display() // TODO
+        private void Display()
         {
             Console.Clear();
 
@@ -90,6 +90,11 @@ namespace LemonadeStand
             }
 
             Console.WriteLine();
+            Console.WriteLine("You have: ${0}", player.Money);//money
+            Console.WriteLine();
+            Console.WriteLine();//weather forecast
+
+            Console.WriteLine();
             Console.WriteLine(message);
             Console.WriteLine();
             Console.WriteLine("What would you like to do? (type Help for options)");
@@ -100,12 +105,15 @@ namespace LemonadeStand
             {
                 case "BUY":
                     player.Buy(command[1], store);
+                    message = "You bought: " + command[1] + "!";
                     break;
                 case "ADD":
                     player.AddToRecipe(command[1]);
+                    message = "You added a " + command[1] + " to the recipe!"; 
                     break;
                 case "REMOVE":
                     player.RemoveFromRecipe(command[1]);
+                    message = "You removed a " + command[1] + " from the recipe!";
                     break;
                 case "CHANGEPRICE":
                     // Change the price/cup of lemonade
@@ -114,7 +122,8 @@ namespace LemonadeStand
                     playerIsReady = !playerIsReady;
                     break;
                 case "QUIT":
-                    playerWantsToQuit = true;
+                    playerWantsToQuit = !PlayerWantsToQuit;
+                    playerIsReady = !playerIsReady;
                     return;
                 case "HELP":
                     // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
