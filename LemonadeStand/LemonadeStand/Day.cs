@@ -28,6 +28,7 @@ namespace LemonadeStand
             //      If Player.pitcherOfLemonade == 0, Player.RefilPitcher
             //              check if have ingredients. if so, remove from inventory and fill pitcher
             //                  if not, day ends. Store how many customers wanted to buy after stock-out?
+            // After all customers pass by, day ends.
         }
     }
 }

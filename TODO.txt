@@ -48,3 +48,5 @@ End of game: How much money is left, how much lemonade sold, customer satisfacti
 PreDayMenu.Display uses 3 columns (one for Inv, Recipe, and Store)
 
 PreDayMenu.Display looks funny for the store.
+
+Item(ingredient, not-food){(lemon, sugar, ice), (cup)} multiple inheritance is no good in C#, but stackOverflow says use interfaces. Look into this.

@@ -21,7 +21,7 @@ namespace LemonadeStand
         {
             get => playerWantsToQuit;
         }
-        bool playerIsReady;
+        private bool playerIsReady;
 
         private string message;
 
