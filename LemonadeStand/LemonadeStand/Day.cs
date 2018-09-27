@@ -20,7 +20,7 @@ namespace LemonadeStand
         }
         public void StartDay()
         {
-            // Use the weather to create Customers
+            customers = CreateListOfCustomers();
 
             if (player.HasIngredientsForNewPitcherOfLemonade() && player.Inventory.Cups > 0 && player.Inventory.Ice > player.Recipe.Quantities[2]) // Make 1st pitcher of lemonade for the day
             {
@@ -64,7 +64,7 @@ namespace LemonadeStand
             List<Customer> listOfCustomers = new List<Customer>();
             while(listOfCustomers.Count < 100)
             {
-                listOfCustomers.Add(new Customer(weather));
+                listOfCustomers.Add(new Customer(player, weather));
             }
             return listOfCustomers;
         }

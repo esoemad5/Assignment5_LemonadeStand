@@ -69,6 +69,10 @@ namespace LemonadeStand
         }
         public void ChangePrice(double newPrice)
         {
+            if(newPrice <= 0)
+            {
+                throw new Exception();
+            }
             price = newPrice;
         }
     }

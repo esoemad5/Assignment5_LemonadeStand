@@ -145,9 +145,9 @@ namespace LemonadeStand
                     {
                         player.Recipe.ChangePrice(Math.Round(Convert.ToDouble(newPrice), 2));
                     }
-                    catch (FormatException)
+                    catch (Exception)
                     {
-                        message = "Price must be a number!";
+                        message = "Price must be a positive number!";
                     }
                     break;
                 case "START":
