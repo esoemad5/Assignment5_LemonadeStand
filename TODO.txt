@@ -2,12 +2,11 @@ This list is not comprehensive!
 
 
 The game works! Poorly, but it works! Things to make it more than just functional:
-Actual weather vs forecast should be different (MVP)
-Show post-day stats (need to show profit/loss for MVP)
-	stats should probably be a seperate class that a Player has.
 Buy items in bulk
 Put restrictions on recipie (sum of lemons and sugar must be in some range). a recipie of 0 lemons, 0 sugar and 0 ice means unlimited lemonade.
 Write message for the 'Help' option.
+
+PreDayMenu.Display can be broken down into more basic functions.
 
 
 Low-priority bugs (fix after MVP is met):

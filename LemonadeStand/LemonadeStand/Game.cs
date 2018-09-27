@@ -41,9 +41,12 @@ namespace LemonadeStand
 
                 Day day = new Day(player, weather);
                 day.StartDay(customersPerDay);
-                // End of day:
-                //      Display results:  money made vs money spent that day, and total money left.
 
+                player.Stats.Display(currentDay);
+
+                Console.WriteLine();
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
 
                 currentDay++;
             }

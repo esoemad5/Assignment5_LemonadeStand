@@ -28,16 +28,35 @@ namespace LemonadeStand
         // update each time a player buys something and at end of each day
         public void UpdateMoneySpent(double moneySpent)
         {
-
+            moneySpentToday += moneySpent;
+            moneySpentTotal += moneySpent;
         }
         public void UpdateMoneyEarned(double moneyEarned)
         {
-
+            moneyEarnedToday += moneyEarned;
+            moneyEarnedTotal += moneyEarned;
+        }
+        public void ResetMoneySpentToday()
+        {
+            moneySpentTotal = 0;
+        }
+        public void ResetMoneyEarnedToday()
+        {
+            moneyEarnedToday = 0;
         }
         // Display
-        public void Display()
+        public void Display(int dayCount)
         {
-
+            Console.Clear();
+            Console.WriteLine("End of day {0}", dayCount);
+            Console.WriteLine();
+            Console.WriteLine("Money earned today: ${0}", moneyEarnedToday);
+            Console.WriteLine("Money spent today: ${0}", moneySpentToday);
+            Console.WriteLine("Today's profit: ${0}", moneyEarnedToday - moneySpentToday);
+            Console.WriteLine();
+            Console.WriteLine("Total money earned: ${0}", moneyEarnedTotal);
+            Console.WriteLine("Total money spent: ${0}", moneySpentTotal);
+            Console.WriteLine("Total profit: ${0}", moneyEarnedTotal - moneySpentTotal);
         }
 
     }

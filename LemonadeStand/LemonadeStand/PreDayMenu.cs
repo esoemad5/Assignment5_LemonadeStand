@@ -68,7 +68,7 @@ namespace LemonadeStand
         }
         private void Display()
         {
-            //Console.Clear(); // Comment this line out when debugging
+            Console.Clear(); // Comment this line out when debugging
 
             Console.WriteLine("Recipe:");
             for (int i = 0; i < player.Recipe.Ingredients.Length; i++)
