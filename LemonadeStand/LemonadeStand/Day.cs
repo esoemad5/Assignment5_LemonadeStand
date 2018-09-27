@@ -16,6 +16,8 @@ namespace LemonadeStand
         {
             this.player = player;
             this.weather = weather;
+            weather.ChangeConditions();
+            weather.ChangeTemperature();
         }
         public void StartDay(int numberOfCustomers)
         {
