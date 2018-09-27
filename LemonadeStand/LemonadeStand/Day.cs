@@ -21,11 +21,9 @@ namespace LemonadeStand
         {
             int customerCounter = 0;
             CreateListOfCustomers(numberOfCustomers);
-            DayEndsOrMakeMoreLemonade(customerCounter); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
+            customerCounter = DayEndsOrMakeMoreLemonade(customerCounter); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
             Random rand = new Random();
-#pragma warning disable CS1717 // Assignment made to same variable
             for (customerCounter = customerCounter; customerCounter < customers.Count; customerCounter++)
-#pragma warning restore CS1717 // Assignment made to same variable
             {
                 int customerBuysLemonade = customers[customerCounter].ChanceToBuyLemonade - rand.Next(100);
                 if(customerBuysLemonade > 60)
@@ -41,9 +39,9 @@ namespace LemonadeStand
                     DayEndsOrMakeMoreLemonade(customerCounter);  
                 }
             }
-            EndDay(customerCounter);  
+            //EndDay();  
         }
-        private int EndDay(int customerCounter)
+        private int SkipToEndOfDay(int customerCounter)
         {
             return customers.Count;
         }
@@ -59,7 +57,7 @@ namespace LemonadeStand
         {
             if (player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])
             {
-                return EndDay(customerCounter);
+                return SkipToEndOfDay(customerCounter);
             }
             if (player.LemonadeLeftInPitcher <= 0)
             {
@@ -70,7 +68,7 @@ namespace LemonadeStand
                 }
                 else
                 {
-                    return EndDay(customerCounter);
+                    return SkipToEndOfDay(customerCounter);
                 }
             }
             return customerCounter;
