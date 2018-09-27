@@ -8,6 +8,9 @@ Write message for the 'Help' option.
 PreDayMenu.Display can be broken down into more basic functions.
 
 
+LOOK AT Day CLASS LINE 44
+
+
 Low-priority bugs (fix after MVP is met):
 Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
 

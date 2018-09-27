@@ -40,19 +40,29 @@ namespace LemonadeStand
                 new ValidInput("Start"),
                 new ValidInput("ChangePrice")
             };
+            actionsThatDontRequireAnItem[0].Description = "'Help' displays this screen.";
+            actionsThatDontRequireAnItem[1].Description = "'Quit' exits the game.";
+            actionsThatDontRequireAnItem[2].Description = "'Start' locks in your recipie for the day and begins selling lemonade!";
+            actionsThatDontRequireAnItem[3].Description = "'ChangePrice will prompt you to change the price of your lemonade.";
             actionsThatRequireAnItem = new ValidInput[]
             {
                 new ValidInput("Buy"),
                 new ValidInput("Add"),
                 new ValidInput("Remove"),
             };
+            actionsThatRequireAnItem[0].Description = "'Buy' will prompt your for a quantity and then purchase that many items from the store, if you have enough money.";
+            actionsThatRequireAnItem[1].Description = "'Add' will add one of an item to your recipe.";
+            actionsThatRequireAnItem[2].Description = "'Remove' will remove one of an item from your recipe (min. 1).";
             items = new ValidInput[] {
                 new ValidInput("Cup"),
                 new ValidInput("Lemon"),
                 new ValidInput("Sugar"),
                 new ValidInput("Ice"),
-                new ValidInput("Price")
             };
+            foreach (ValidInput item in items)
+            {
+                item.Description = item.Input + " is an item that pairs with a 2-Word-Command";
+            }
 
             message = "Good Luck!";
             bool playerIsReady = false;
@@ -184,13 +194,44 @@ namespace LemonadeStand
                     playerIsReady = !playerIsReady;
                     return;
                 case "HELP":
-                    // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
+                    DisplayHelpMessage();
                     break;
                 default:
                     // If the user inputs 'exit' code reaches here. Why????
                     message = "This message should never be shown. The game probably still works though.";
                     break;
             }
+        }
+        private void DisplayHelpMessage()
+        {
+            Console.WriteLine("The commands are not case sensitive. You will need to type one or two words from the following lists, and only one or two words from those lists.");
+            Console.WriteLine();
+            Console.WriteLine("1-Word Commands:");
+            foreach (ValidInput command in actionsThatDontRequireAnItem)
+            {
+                Console.WriteLine(command.Description);
+            }
+            Console.WriteLine();
+            Console.WriteLine("The first word for 2-Word Commands:");
+            foreach (ValidInput command in actionsThatRequireAnItem)
+            {
+                Console.WriteLine(command.Description);
+            }
+            Console.WriteLine();
+            Console.WriteLine("The second word for 2-Word Commands");
+            foreach (ValidInput command in items)
+            {
+                Console.WriteLine(command.Description);
+            }
+            Console.WriteLine();
+            Console.WriteLine("Press r to return to the game");
+            Console.WriteLine();
+            char pressedR = 'a';
+            while(pressedR != 'r')
+            {
+                pressedR = Console.ReadKey().KeyChar;
+            }
+            
         }
         private string[] GetPlayerInput() 
         {

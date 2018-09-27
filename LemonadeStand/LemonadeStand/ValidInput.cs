@@ -22,7 +22,7 @@ namespace LemonadeStand
         public ValidInput(string input)
         {
             this.input = input;
-            description = "No description has been written for this command/item";
+            description = "No description has been written for " + input;
         }
         
     }
