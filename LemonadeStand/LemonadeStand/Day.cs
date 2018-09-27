@@ -34,13 +34,18 @@ namespace LemonadeStand
             // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
             for (int i = 0; i < customers.Count; i++)
             {
-                
-                if(rand.Next(100) < customers[i].ChanceToBuyLemonade)
+                int customerBuysLemonade = customers[i].ChanceToBuyLemonade - rand.Next(100);
+                if(customerBuysLemonade > 60)
                 {
-  
                     player.SellLemonade();
                     DayEndsOrMakeMoreLemonade();
-                    
+                    player.SellLemonade();
+                    DayEndsOrMakeMoreLemonade();
+                }
+                if (customerBuysLemonade > 0)
+                {
+                    player.SellLemonade();
+                    DayEndsOrMakeMoreLemonade();  
                 }
             }
             EndDay();  

@@ -34,6 +34,7 @@ namespace LemonadeStand
             recipe = new Recipe();
 
             money = 20.00;
+            lemonadeLeftInPitcher = 0;
         }
         public void AddToRecipe(string ingredient)
         {
