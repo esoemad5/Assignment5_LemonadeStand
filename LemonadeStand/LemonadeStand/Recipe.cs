@@ -34,7 +34,7 @@ namespace LemonadeStand
             quantities = new int[3];
             for (int i = 0; i < quantities.Length; i++)
             {
-                quantities[i] = 4;
+                quantities[i] = 3;
             }
 
             price = 0.25; // Default price of lemonade
@@ -58,11 +58,12 @@ namespace LemonadeStand
             {
                 if (ingredients[i].ToLower() == ingredient.ToLower())
                 {
-                    if(quantities[i] != 0)
+                    if(quantities[i] == 1)
                     {
-                        quantities[i]--;
-                        return;
+                        throw new Exception("You cannot have less than one of any ingredient!");
                     }
+                    quantities[i]--;
+                    return;
                 }
             }
             throw new Exception("Can only remove Lemon, Sugar and Ice from the recipe!");
