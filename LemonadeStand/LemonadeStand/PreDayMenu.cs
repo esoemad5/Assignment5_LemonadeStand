@@ -123,14 +123,15 @@ namespace LemonadeStand
             Console.Clear(); // Comment this line out when debugging
             MakeRecipeComponent();
             Console.WriteLine("Price: ${0} per cup", player.Recipe.Price);
+            Console.WriteLine();
             MakeInventoryComponent();
-            MakeStoreComponent();
-
             Console.WriteLine("You have: ${0}", player.Money);
             Console.WriteLine();
-            Console.WriteLine("Weather forecast: {0}F and {1}.", weather.Temperature, weather.Conditions);
+            MakeStoreComponent();
 
+            Console.WriteLine("Weather forecast: {0}F and {1}.", weather.Temperature, weather.Conditions);
             Console.WriteLine();
+
             Console.WriteLine(message);
             Console.WriteLine();
             Console.WriteLine("What would you like to do? Type Help for options.");

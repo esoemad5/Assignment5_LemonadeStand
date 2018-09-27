@@ -33,6 +33,7 @@ namespace LemonadeStand
         {
             get => stats;
         }
+
         public Player()
         {
             inventory = new Inventory();
@@ -84,7 +85,7 @@ namespace LemonadeStand
             inventory.Remove("Cup");
             for (int i = 0; i < recipe.Quantities[2]; i++)
             {
-                inventory.Remove("Ice"); //Ice is per-cup, not per-pitcher. This should be communicated to the user while setting up
+                inventory.Remove("Ice"); //Ice is per-cup, not per-pitcher.
             }
             lemonadeLeftInPitcher--; // Pitcher knows how many glasses it can fill, dont have to worry about ice levels in this line.
         }
@@ -100,16 +101,15 @@ namespace LemonadeStand
         }
         public void MakeMoreLemonade()
         {
-            // take stuff out of inventory and fill pitcher to an int bassed on the Ice used in the recipe
-            for(int i = 0; i < recipe.Quantities.Length-1; i++) // Dont put ice in the pitcher (hence the -1)
+            for(int i = 0; i < recipe.Quantities.Length - 1; i++) // Dont put ice in the pitcher (hence the -1)
             {
                 for(int j = 0; j < recipe.Quantities[i]; j++)
                 {
                     inventory.Remove(recipe.Ingredients[i]);
                 }
             }
-            // let 4 cubes make 10 glasses and 2 cubes make 14 glasses. Thus, each cube removes 2 glasses from the pitcher
-            lemonadeLeftInPitcher = 18 - (2 * recipe.Quantities[2]);
+            // Pitcher has 10 glasses + 2 for each ice cube used.
+            lemonadeLeftInPitcher = 10 + (2 * recipe.Quantities[2]);
         }
     }
 }

@@ -19,11 +19,5 @@ namespace LemonadeStand
             get => price;
             set => price = value;
         }
-        protected bool isAnIngredient;
-        public bool IsanIngredient
-        {
-            get => isAnIngredient;
-        }
-
     }
 }
