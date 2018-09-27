@@ -1,3 +1,5 @@
-In PreDayMenu.ProcessInput, some of the cases in the switch statment use try/catch and each catch block does the same thing. It would therefore be possible (and use less lines of code) to wrap the entire switch in a single try block and just use 1 catch block.
+In PreDayMenu.ProcessInput, I use O. Some of the cases in the switch statment use try/catch and each catch block does the same thing. It would therefore be possible (and use less lines of code) to wrap the entire switch in a single try block and just use 1 catch block.
 
 If, in the future, I (or whoever would be working on the project) needed to do a specific thing for a specific exception in a specific case, they would have a tedious job ahead of them. Writing the method this way leaves it open to further improvement without forcing a large re-structuring of the code, thus following the Open/Closed Principle of SOLID
+
+In Day.StartDay, I use S. StartDay had a lot of stuff going on. The logic of making more lemonade or ending the day was the biggest culprit. I realized this was a function all it's own and wrote Day.DayEndsOrMakeMoreLemonade. Now Day.StartDay is mostly calls to other functions in a loop and each of these functions do just one thing, thus following the Single Responsibility Principle of SOLID.

@@ -11,7 +11,6 @@ namespace LemonadeStand
         private Player player;
         private List<Customer> customers;
         private Weather weather;
-        // weather.Temperature/Conditions
 
         public Day(Player player, Weather weather)
         {
@@ -21,17 +20,8 @@ namespace LemonadeStand
         public void StartDay()
         {
             customers = CreateListOfCustomers();
-
-            if (player.HasIngredientsForNewPitcherOfLemonade() && player.Inventory.Cups > 0 && player.Inventory.Ice > player.Recipe.Quantities[2]) // Make 1st pitcher of lemonade for the day
-            {
-                player.MakeMoreLemonade();
-            }
-            else
-            {
-                EndDay();
-            }
+            DayEndsOrMakeMoreLemonade(); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
             Random rand = new Random();
-            // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
             for (int i = 0; i < customers.Count; i++)
             {
                 int customerBuysLemonade = customers[i].ChanceToBuyLemonade - rand.Next(100);
