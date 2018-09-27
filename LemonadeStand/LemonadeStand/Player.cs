@@ -28,6 +28,11 @@ namespace LemonadeStand
         {
             get => lemonadeLeftInPitcher;
         }
+        private Stats stats;
+        public Stats Stats
+        {
+            get => stats;
+        }
         public Player()
         {
             inventory = new Inventory();
@@ -76,7 +81,7 @@ namespace LemonadeStand
             }
             lemonadeLeftInPitcher--; // Pitcher knows how many glasses it can fill, dont have to worry about ice levels in this line.
         }
-        public bool HasIngredientsForNewPitcherOfLemonade() // TO be used in tandem with MakeMoreLemonade.
+        public bool HasIngredientsForNewPitcherOfLemonade() // To be used in tandem with MakeMoreLemonade.
         {
             if(inventory.Lemons >= recipe.Quantities[0] && inventory.Sugar >= recipe.Quantities[1])
             {
