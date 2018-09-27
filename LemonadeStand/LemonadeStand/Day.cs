@@ -28,7 +28,7 @@ namespace LemonadeStand
             }
             else
             {
-                //Day ends
+                EndDay();
             }
             // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
             for (int i = 0; i < customers.Count; i++)
@@ -48,16 +48,25 @@ namespace LemonadeStand
                         }
                         else
                         {
-                            //Day ends
+                            EndDay();
                         }
                     } 
                 }
             }
-            //Day ends  
+            EndDay();  
         }
         private void EndDay()
         {
             // Generate everything needed for end of day display.
+        }
+        public List<Customer> CreateListOfCustomers(Weather weather) // make private after testing
+        {
+            List<Customer> listOfCustomers = new List<Customer>();
+            while(listOfCustomers.Count < 100)
+            {
+                listOfCustomers.Add(new Customer(weather));
+            }
+            return listOfCustomers;
         }
     }
 }
