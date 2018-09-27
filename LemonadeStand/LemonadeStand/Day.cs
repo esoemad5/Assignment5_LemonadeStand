@@ -30,10 +30,11 @@ namespace LemonadeStand
             {
                 EndDay();
             }
+            Random rand = new Random();
             // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
             for (int i = 0; i < customers.Count; i++)
             {
-                if(true/*some condition where Customer wants to buy lemonade*/)
+                if(rand.Next(100) < customers[i].ChanceToBuyLemonade)
                 {
                     player.SellLemonade(customers[i]);
                     if(player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])

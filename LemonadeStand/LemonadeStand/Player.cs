@@ -65,7 +65,7 @@ namespace LemonadeStand
             
 
         }
-        public void SellLemonade(Customer customer)
+        public void SellLemonade()
         {
             money += Recipe.Price;
             inventory.Remove("Cup");
