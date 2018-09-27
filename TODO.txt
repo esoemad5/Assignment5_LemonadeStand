@@ -1,7 +1,8 @@
 This list is not comprehensive!
 
 Low-priority bugs:
-Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
+Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Impossible for the user to do, but recklessly changing the code may (unlikely) cause issues with this. Be careful!
+PreDayMenu.Display default case happens if 'exit' is entered. The default case for this switch (and probably most others in this project) should never reach the default case.
 
 Post-MVP:
 End of day: # of lemonades sold, customer satisfaction rate, customer feedback table
@@ -10,7 +11,7 @@ End of game: How much money is left, how much lemonade sold, customer satisfacti
 
 PreDayMenu.Display uses 3 columns (one for Inv, Recipe, and Store)
 
-PreDayMenu.Display looks funny for the store.
+PreDayMenu.message looks funny for the store sometimes.
 
 Item(ingredient, not-food){(lemon, sugar, ice), (cup)} multiple inheritance is no good in C#, but stackOverflow says use interfaces. Look into this.
 

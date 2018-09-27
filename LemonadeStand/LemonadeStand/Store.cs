@@ -26,8 +26,6 @@ namespace LemonadeStand
             stock[1].Price = 0.06;
             stock[2].Price = 0.01;
             stock[3].Price = 0.04;
-
-
         }
     }
 }

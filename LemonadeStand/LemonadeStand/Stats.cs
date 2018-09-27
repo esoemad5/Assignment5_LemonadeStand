@@ -25,7 +25,6 @@ namespace LemonadeStand
             moneyEarnedToday = 0;
             moneyEarnedTotal = 0;
         }
-        // update each time a player buys something and at end of each day
         public void UpdateMoneySpent(double moneySpent)
         {
             moneySpentToday += moneySpent;
@@ -44,7 +43,6 @@ namespace LemonadeStand
         {
             moneyEarnedToday = 0;
         }
-        // Display
         public void Display(int dayCount)
         {
             Console.Clear();

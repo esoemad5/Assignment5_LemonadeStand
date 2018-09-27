@@ -25,7 +25,6 @@ namespace LemonadeStand
 
         private string message;
 
-
         public PreDayMenu(Player player, Store store, Weather weather)
         {
             this.player = player;
@@ -117,7 +116,6 @@ namespace LemonadeStand
             }
             Console.WriteLine();
         }
-
         private void Display()
         {
             Console.Clear(); // Comment this line out when debugging
@@ -217,7 +215,9 @@ namespace LemonadeStand
         }
         private void DisplayHelpMessage()
         {
-            Console.WriteLine("The commands are not case sensitive. You will need to type one or two words from the following lists, and only one or two words from those lists.");
+            Console.WriteLine("---------------------------------------------------------------------------------------------------");
+            Console.WriteLine("The commands are not case sensitive.");
+            Console.WriteLine("You will need to type one or two words from the following lists, and only one or two words from those lists.");
             Console.WriteLine();
             Console.WriteLine("1-Word Commands:");
             foreach (ValidInput command in actionsThatDontRequireAnItem)
@@ -238,7 +238,7 @@ namespace LemonadeStand
             }
             Console.WriteLine();
             Console.WriteLine("Press r to return to the game");
-            Console.WriteLine();
+            Console.WriteLine("---------------------------------------------------------------------------------------------------");
             char pressedR = 'a';
             while(pressedR != 'r')
             {

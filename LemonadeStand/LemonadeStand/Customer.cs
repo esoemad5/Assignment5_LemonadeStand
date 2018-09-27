@@ -61,10 +61,5 @@ namespace LemonadeStand
             chanceToBuyLemonade += PriceFactor(player);
             chanceToBuyLemonade += RandomFactor();
         }
-        // Lemonade recipe doesn't have to affect customers. In the future, use customer satisfaction to influence player's popularity, which would influence how many customers would visit the stand.
-        // Customers could make feedback(new object)?
-
-
-
     }
 }

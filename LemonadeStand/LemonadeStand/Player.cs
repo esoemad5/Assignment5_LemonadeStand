@@ -75,8 +75,6 @@ namespace LemonadeStand
                     
                 }
             }
-            
-
         }
         public void SellLemonade()
         {
@@ -101,7 +99,7 @@ namespace LemonadeStand
         }
         public void MakeMoreLemonade()
         {
-            for(int i = 0; i < recipe.Quantities.Length - 1; i++) // Dont put ice in the pitcher (hence the -1)
+            for(int i = 0; i < recipe.Quantities.Length - 1; i++) // Dont use ice when making anew pitcher (hence the -1)
             {
                 for(int j = 0; j < recipe.Quantities[i]; j++)
                 {

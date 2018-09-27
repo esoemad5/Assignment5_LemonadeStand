@@ -12,12 +12,6 @@ namespace LemonadeStand
         {
             Game game = new Game();
             game.StartGame();
-
-            /*
-            int a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(a);
-            */
-            // throws a FormatException
         }
     }
 

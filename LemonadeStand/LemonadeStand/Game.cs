@@ -15,15 +15,11 @@ namespace LemonadeStand
         {
             gameLength = 7;
             currentDay = 1;
-            customersPerDay = 100;
+            customersPerDay = 20;
 
         }
         public void StartGame()
         {
-            // Display intro/welcome message
-            Console.WriteLine("Welcome Message");
-            // Default 7 day game. Asking user for game length is not part of the MVP
-
             Player player = new Player();
             Store store = new Store();
             Weather weather;
@@ -47,13 +43,16 @@ namespace LemonadeStand
                 player.Stats.ResetMoneyEarnedToday();
                 player.Stats.ResetMoneySpentToday();
                 Console.WriteLine();
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey();
-
+                Console.WriteLine("Press c to continue.");
+                char cont = 'a';
+                while(cont != 'c')
+                {
+                    cont = Console.ReadKey().KeyChar;
+                }
                 currentDay++;
             }
-            // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
+            Console.WriteLine();
+            Console.WriteLine("Summer is over, nobody will buy lemonade until next year. Thank you for playing!!!");
         }
-  
     }
 }

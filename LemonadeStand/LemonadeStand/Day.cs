@@ -23,7 +23,7 @@ namespace LemonadeStand
         {
             int customerCounter = 0;
             CreateListOfCustomers(numberOfCustomers);
-            customerCounter = DayEndsOrMakeMoreLemonade(customerCounter); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
+            customerCounter = DayEndsOrMakeMoreLemonade(customerCounter); // Make 1st pitcher of lemonade.
             Random rand = new Random();
             for (customerCounter = customerCounter; customerCounter < customers.Count; customerCounter++)
             {
