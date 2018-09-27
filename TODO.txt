@@ -1,3 +1,20 @@
+This list is not comprehensive!
+
+
+The game works! Poorly, but it works! Things to make it more than just functional:
+Actual weather vs forecast should be different (MVP)
+Show post-day stats (need to show profit/loss for MVP)
+	stats should probably be a seperate class that a Player has.
+Buy items in bulk
+Put restrictions on recipie (sum of lemons and sugar must be in some range). a recipie of 0 lemons, 0 sugar and 0 ice means unlimited lemonade.
+Write message for the 'Help' option.
+
+
+
+
+
+
+
 DONT CALL METHODS INSIDE CONSTRUCTORS
 
 In Day.StartDay: Method to end the day. Customer class entirely. Maybe a way to store stats (post-MVP?).
@@ -26,19 +43,6 @@ PreDayMenu.GetPlayerInput thinks 'add/remove cups' is valid. Cups are not part o
 Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
 
 Item.isAnIngredient is unused. Could be used to fix the cup bug though
-
-
-
-
-
-
-
-Interesting idea(IMPLEMENTED): make Item an abstract class and make Inventory a bunch of lists of Item children. Supports more features in the future (follows O of SOLID).
-Perhaps only inventory should handle quantities? Not sure how to do if not using abstract Items
-
-
-
-
 
 
 

@@ -15,10 +15,8 @@ namespace LemonadeStand
         }
         public Customer(Player player, Weather weather)
         {
-            //Chance to buy lemonade, or multiple lemonade.
             chanceToBuyLemonade = 0;
-            // Chance is number 1-100, if game rolls lowwer than the chance, Customer buys lemonade.
-            // If roll is 60 under, buy 2 lemonade
+            // Chance is number 1-100, if game rolls lower than the chance, Customer buys lemonade.
             // Sunny, Cloudy, Rainy adds 20, 30, 40
             switch (weather.Conditions)
             {

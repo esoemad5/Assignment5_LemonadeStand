@@ -9,9 +9,11 @@ namespace LemonadeStand
     class Game
     {
         private int gameLength;
+        private int currentDay;
         public Game()
         {
             gameLength = 7;
+            currentDay = 1;
 
         }
         public void StartGame()
@@ -25,7 +27,7 @@ namespace LemonadeStand
             Weather weather;
             PreDayMenu menu;
             
-            while (true)
+            while (currentDay <= gameLength)
             {
                 weather = new Weather();
                 menu = new PreDayMenu(player, store, weather);
@@ -36,13 +38,14 @@ namespace LemonadeStand
                 }
 
                 Day day = new Day(player, weather);
+                day.StartDay();
                 // End of day:
                 //      Display results:  money made vs money spent that day, and total money left.
-                break;
+
+                currentDay++;
             }
             // End of day 7, quit, or bankrupt: exit. Any post-game fedback/messages/play again options are non-MVP.
         }
-
-        
-    }// end of class
+  
+    }
 }
