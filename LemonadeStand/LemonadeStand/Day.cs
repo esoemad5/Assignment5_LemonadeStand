@@ -19,30 +19,33 @@ namespace LemonadeStand
         }
         public void StartDay(int numberOfCustomers)
         {
+            int customerCounter = 0;
             CreateListOfCustomers(numberOfCustomers);
-            DayEndsOrMakeMoreLemonade(); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
+            DayEndsOrMakeMoreLemonade(customerCounter); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
             Random rand = new Random();
-            for (int counter = 0; counter < customers.Count; counter++)
+#pragma warning disable CS1717 // Assignment made to same variable
+            for (customerCounter = customerCounter; customerCounter < customers.Count; customerCounter++)
+#pragma warning restore CS1717 // Assignment made to same variable
             {
-                int customerBuysLemonade = customers[counter].ChanceToBuyLemonade - rand.Next(100);
+                int customerBuysLemonade = customers[customerCounter].ChanceToBuyLemonade - rand.Next(100);
                 if(customerBuysLemonade > 60)
                 {
                     player.SellLemonade();
-                    //counter = DayEndsOrMakeMoreLemonade();
+                    customerCounter = DayEndsOrMakeMoreLemonade(customerCounter);
                     player.SellLemonade();
-                    DayEndsOrMakeMoreLemonade();
+                    DayEndsOrMakeMoreLemonade(customerCounter);
                 }
                 if (customerBuysLemonade > 0)
                 {
                     player.SellLemonade();
-                    DayEndsOrMakeMoreLemonade();  
+                    DayEndsOrMakeMoreLemonade(customerCounter);  
                 }
             }
-            EndDay();  
+            EndDay(customerCounter);  
         }
-        private void EndDay()
+        private int EndDay(int customerCounter)
         {
-            //classWideCounter = customers.Count;
+            return customers.Count;
         }
         private void CreateListOfCustomers(int numberOfCustomers)
         {
@@ -52,23 +55,25 @@ namespace LemonadeStand
                 customers.Add(new Customer(player, weather));
             }
         }
-        private void DayEndsOrMakeMoreLemonade()
+        private int DayEndsOrMakeMoreLemonade(int customerCounter)
         {
             if (player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])
             {
-                EndDay();
+                return EndDay(customerCounter);
             }
             if (player.LemonadeLeftInPitcher <= 0)
             {
                 if (player.HasIngredientsForNewPitcherOfLemonade())
                 {
                     player.MakeMoreLemonade();
+                    return customerCounter;
                 }
                 else
                 {
-                    EndDay();
+                    return EndDay(customerCounter);
                 }
             }
+            return customerCounter;
         }
     }
 }
