@@ -41,7 +41,6 @@ namespace LemonadeStand
                     DayEndsOrMakeMoreLemonade(customerCounter);  
                 }
             }
-            //EndDay();  
         }
         private int SkipToEndOfDay(int customerCounter)
         {

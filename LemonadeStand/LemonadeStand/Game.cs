@@ -33,7 +33,7 @@ namespace LemonadeStand
             {
                 weather = new Weather();
                 menu = new PreDayMenu(player, store, weather);
-                menu.MainLoop(); // Should allow player to buy x of an item, rather than one at a time.
+                menu.MainLoop();
                 if (menu.PlayerWantsToQuit)
                 {
                     break;

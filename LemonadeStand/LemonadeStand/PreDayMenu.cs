@@ -31,6 +31,8 @@ namespace LemonadeStand
             this.player = player;
             this.store = store;
             this.weather = weather;
+            message = "Good Luck!";
+            bool playerIsReady = false;
 
             actionsThatDontRequireAnItem = new ValidInput[]
             {
@@ -44,6 +46,7 @@ namespace LemonadeStand
             actionsThatDontRequireAnItem[1].Description = "'Quit' exits the game.";
             actionsThatDontRequireAnItem[2].Description = "'Start' locks in your recipie for the day and begins selling lemonade!";
             actionsThatDontRequireAnItem[3].Description = "'ChangePrice will prompt you to change the price of your lemonade.";
+
             actionsThatRequireAnItem = new ValidInput[]
             {
                 new ValidInput("Buy"),
@@ -53,6 +56,7 @@ namespace LemonadeStand
             actionsThatRequireAnItem[0].Description = "'Buy' will prompt your for a quantity and then purchase that many items from the store, if you have enough money.";
             actionsThatRequireAnItem[1].Description = "'Add' will add one of an item to your recipe.";
             actionsThatRequireAnItem[2].Description = "'Remove' will remove one of an item from your recipe (min. 1).";
+
             items = new ValidInput[] {
                 new ValidInput("Cup"),
                 new ValidInput("Lemon"),
@@ -63,9 +67,6 @@ namespace LemonadeStand
             {
                 item.Description = item.Input + " is an item that pairs with a 2-Word-Command";
             }
-
-            message = "Good Luck!";
-            bool playerIsReady = false;
         }
         public void MainLoop()
         {
@@ -89,31 +90,42 @@ namespace LemonadeStand
                 }
             }
         }
-        private void Display()
+        private void MakeRecipeComponent()
         {
-            Console.Clear(); // Comment this line out when debugging
-
             Console.WriteLine("Recipe:");
             for (int i = 0; i < player.Recipe.Ingredients.Length; i++)
             {
                 Console.WriteLine("{0}: {1}", player.Recipe.Ingredients[i], player.Recipe.Quantities[i]);
             }
-            Console.WriteLine("Price: ${0} per cup", player.Recipe.Price); //price
             Console.WriteLine();
+        }
+        private void MakeInventoryComponent()
+        {
             Console.WriteLine("Inventory:");
             for (int i = 0; i < player.Inventory.Items.Length; i++)
             {
                 Console.WriteLine("{0}: {1}", player.Inventory.ItemNames[i], player.Inventory.Items[i].Count);
             }
-
             Console.WriteLine();
+        }
+        private void MakeStoreComponent()
+        {
             Console.WriteLine("Store:");
-            for(int i = 0; i < store.Stock.Length; i++)
+            for (int i = 0; i < store.Stock.Length; i++)
             {
                 Console.WriteLine("{1} per {0}", store.Stock[i].Name, store.Stock[i].Price);
             }
-
             Console.WriteLine();
+        }
+
+        private void Display()
+        {
+            Console.Clear(); // Comment this line out when debugging
+            MakeRecipeComponent();
+            Console.WriteLine("Price: ${0} per cup", player.Recipe.Price);
+            MakeInventoryComponent();
+            MakeStoreComponent();
+
             Console.WriteLine("You have: ${0}", player.Money);
             Console.WriteLine();
             Console.WriteLine("Weather forecast: {0}F and {1}.", weather.Temperature, weather.Conditions);
