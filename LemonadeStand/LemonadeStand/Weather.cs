@@ -36,9 +36,9 @@ namespace LemonadeStand
         {
             Random rand = new Random();
             int chance = rand.Next(100);
-            if(chance > 20)
+            if (chance > 20)
             {
-                if(chance < 5)
+                if (chance < 5)
                 {
                     conditions = "Rainy";
                 }
@@ -50,6 +50,7 @@ namespace LemonadeStand
                 {
                     conditions = "Sunny";
                 }
+            }
         }
     }
 }

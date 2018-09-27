@@ -12,8 +12,6 @@ namespace LemonadeStand
         {
             Game game = new Game();
             game.StartGame();
-            Player player = new Player();
-            Weather weather = new Weather();
 
 
         }
