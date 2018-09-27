@@ -10,41 +10,10 @@ Put restrictions on recipie (sum of lemons and sugar must be in some range). a r
 Write message for the 'Help' option.
 
 
-
-
-
-
-
-DONT CALL METHODS INSIDE CONSTRUCTORS
-
-In Day.StartDay: Method to end the day. Customer class entirely. Maybe a way to store stats (post-MVP?).
-Customers dont have to buy lemonade bassed on the recipe (according to user stories), I guess that part is post-MVP
-
-DONT FORGET:
-Make a .txt file outlining where 2 of the SOLID design priciples were used.
-
-TIMELINE:
-Goal is to finish 1) by end of Thursday (2.5 days), 2) by end of Friady (1 day), and 3) by end of Monday (1 day). Weekend can be used as catch-up, or head start on 3) to give time for some post-MVP work.
-
-Think of the game as 3 parts: pre-day, day, and end of day.
-
-1) Pre-day is probably most complex, it's where all the user input is and it needs to display a lot of info from different classes.
-
-2) Day is moderately simple. No output. Needs to remove items from player's inventory, give player money, and generate the data that will be output at end of day.
-
-3) End of day needs to display data from day, but it is far less than what is shown in pre-day (just 3 things).
-
-
-
-
 Low-priority bugs (fix after MVP is met):
-PreDayMenu.GetPlayerInput thinks 'add/remove cups' is valid. Cups are not part of the recipe. It's fine now. It could cause errors in the future, but I anticipate nothing happening when the Help message would have been displayed (which is also technically post-MVP)
-
 Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
 
-Item.isAnIngredient is unused. Could be used to fix the cup bug though
-
-
+Item.isAnIngredient is unused.
 
 
 Post-MVP:
