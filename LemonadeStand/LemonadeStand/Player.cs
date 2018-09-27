@@ -38,7 +38,7 @@ namespace LemonadeStand
             inventory = new Inventory();
             recipe = new Recipe();
 
-            money = .10;
+            money = 20.0;
             lemonadeLeftInPitcher = 0;
             stats = new Stats();
         }
@@ -50,21 +50,24 @@ namespace LemonadeStand
         {
             recipe.Remove(ingredient);
         }
-        public void Buy(string itemToPurchase, Store store)
+        public void Buy(string itemToPurchase, Store store, int quantity)
         {
             foreach(Item thing in store.Stock)
             {
                 if (thing.Name.ToUpper() == itemToPurchase)
                 {
-                    money -= thing.Price;
+                    money -= thing.Price*quantity;
                     if(money < 0)
                     {
-                        money += thing.Price;
+                        money += thing.Price*quantity;
                         throw new Exception("You dont have enough money to buy that!");
                     }
                     else
                     {
-                        inventory.Add(thing);
+                        for(int i = 0; i < quantity; i++)
+                        {
+                            inventory.Add(thing);
+                        }
                     }
                     
                 }

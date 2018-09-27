@@ -113,6 +113,11 @@ namespace LemonadeStand
             Console.WriteLine();
             Console.WriteLine("What would you like to do? Type Help for options.");
         }
+        private int GetQuantity()
+        {
+            Console.WriteLine("How many would you like to buy?");
+            return Convert.ToInt32(Console.ReadLine());
+        }
         private void ProcessInput(string[] command)
         {
             switch (command[0])
@@ -120,8 +125,16 @@ namespace LemonadeStand
                 case "BUY":
                     try
                     {
-                        player.Buy(command[1], store);
+                        player.Buy(command[1], store, GetQuantity());
                         message = "You bought: " + command[1] + "!";
+                    }
+                    catch (FormatException)
+                    {
+                        message = "You must enter an integer!";
+                    }
+                    catch (OverflowException)
+                    {
+                        message = "You can't buy that many!";
                     }
                     catch(Exception e)
                     {
@@ -174,6 +187,7 @@ namespace LemonadeStand
                     // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
                     break;
                 default:
+                    // If the user inputs 'exit' code reaches here. Why????
                     message = "This message should never be shown. The game probably still works though.";
                     break;
             }

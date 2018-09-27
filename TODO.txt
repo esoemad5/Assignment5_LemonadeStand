@@ -3,7 +3,7 @@ This list is not comprehensive!
 
 The game works! Poorly, but it works! Things to make it more than just functional:
 Buy items in bulk
-Put restrictions on recipie (sum of lemons and sugar must be in some range). a recipie of 0 lemons, 0 sugar and 0 ice means unlimited lemonade.
+Put restrictions on recipie (sum of lemons and sugar must be in some range). A recipie of 0 lemons, 0 sugar and 0 ice means unlimited lemonade.
 Write message for the 'Help' option.
 
 PreDayMenu.Display can be broken down into more basic functions.
