@@ -65,8 +65,7 @@ namespace LemonadeStand
                     cups.Add(new Cup());
                     break;
                 default:
-                    Console.WriteLine("Error in Inventory.Add. Tried to add an invalid item.");
-                    break;
+                    throw new Exception("Exception in Inventory.Add, tried to add an invalid item.");
             }
         }
         public void Remove(string item)
@@ -88,8 +87,7 @@ namespace LemonadeStand
                         cups.RemoveAt(0);
                         break;
                     default:
-                        Console.WriteLine("Error in Inventory.Add. Tried to remove an invalid item.");
-                        break;
+                        throw new Exception("Exception in Inventory.Remove, tried to remove an invalid item.");
                 }
             }
             catch (ArgumentOutOfRangeException)

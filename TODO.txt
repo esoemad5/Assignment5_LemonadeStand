@@ -1,14 +1,7 @@
 This list is not comprehensive!
 
-
-The game works! Poorly, but it works! Things to make it more than just functional:
-Put restrictions on recipie (sum of lemons and sugar must be in some range).
-
-Low-priority bugs (fix after MVP is met):
+Low-priority bugs:
 Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Be careful!
-
-Item.isAnIngredient is unused.
-
 
 Post-MVP:
 End of day: # of lemonades sold, customer satisfaction rate, customer feedback table
@@ -20,3 +13,5 @@ PreDayMenu.Display uses 3 columns (one for Inv, Recipe, and Store)
 PreDayMenu.Display looks funny for the store.
 
 Item(ingredient, not-food){(lemon, sugar, ice), (cup)} multiple inheritance is no good in C#, but stackOverflow says use interfaces. Look into this.
+
+Put restrictions on recipie (sum of lemons and sugar must be in some range).

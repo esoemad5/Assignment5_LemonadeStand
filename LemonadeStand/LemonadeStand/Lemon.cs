@@ -11,7 +11,6 @@ namespace LemonadeStand
         public Lemon()
         {
             name = "Lemon";
-            isAnIngredient = true;
         }
     }
 }
