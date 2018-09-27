@@ -59,7 +59,7 @@ namespace LemonadeStand
         {
             // Generate everything needed for end of day display.
         }
-        public List<Customer> CreateListOfCustomers(Weather weather) // make private after testing
+        private List<Customer> CreateListOfCustomers()
         {
             List<Customer> listOfCustomers = new List<Customer>();
             while(listOfCustomers.Count < 100)

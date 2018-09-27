@@ -11,7 +11,10 @@ namespace LemonadeStand
         static void Main(string[] args)
         {
             Game game = new Game();
-            game.StartGame();
+            //game.StartGame();
+            Player player = new Player();
+            Weather weather = new Weather();
+
 
         }
     }
