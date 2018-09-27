@@ -11,6 +11,7 @@ namespace LemonadeStand
         private Player player;
         private List<Customer> customers;
         private Weather weather;
+        private int classWideCounter;
 
         public Day(Player player, Weather weather)
         {
@@ -22,9 +23,9 @@ namespace LemonadeStand
             customers = CreateListOfCustomers();
             DayEndsOrMakeMoreLemonade(); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
             Random rand = new Random();
-            for (int i = 0; i < customers.Count; i++)
+            for (classWideCounter = 0; classWideCounter < customers.Count; classWideCounter++)
             {
-                int customerBuysLemonade = customers[i].ChanceToBuyLemonade - rand.Next(100);
+                int customerBuysLemonade = customers[classWideCounter].ChanceToBuyLemonade - rand.Next(100);
                 if(customerBuysLemonade > 60)
                 {
                     player.SellLemonade();
@@ -42,7 +43,7 @@ namespace LemonadeStand
         }
         private void EndDay()
         {
-            // Generate everything needed for end of day display.
+            classWideCounter = customers.Count;
         }
         private List<Customer> CreateListOfCustomers()
         {
