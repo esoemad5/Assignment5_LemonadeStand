@@ -38,7 +38,7 @@ namespace LemonadeStand
             inventory = new Inventory();
             recipe = new Recipe();
 
-            money = 20.0;
+            money = 5.00;
             lemonadeLeftInPitcher = 0;
             stats = new Stats();
         }
@@ -56,10 +56,11 @@ namespace LemonadeStand
             {
                 if (thing.Name.ToUpper() == itemToPurchase)
                 {
-                    money -= thing.Price*quantity;
+                    double cost = thing.Price * quantity;
+                    money -= cost;
                     if(money < 0)
                     {
-                        money += thing.Price*quantity;
+                        money += cost;
                         throw new Exception("You dont have enough money to buy that!");
                     }
                     else
@@ -68,6 +69,7 @@ namespace LemonadeStand
                         {
                             inventory.Add(thing);
                         }
+                        stats.UpdateMoneySpent(cost);
                     }
                     
                 }
@@ -78,6 +80,7 @@ namespace LemonadeStand
         public void SellLemonade()
         {
             money += Recipe.Price;
+            stats.UpdateMoneyEarned(Recipe.Price);
             inventory.Remove("Cup");
             for (int i = 0; i < recipe.Quantities[2]; i++)
             {

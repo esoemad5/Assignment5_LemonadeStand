@@ -44,6 +44,8 @@ namespace LemonadeStand
 
                 player.Stats.Display(currentDay);
 
+                player.Stats.ResetMoneyEarnedToday();
+                player.Stats.ResetMoneySpentToday();
                 Console.WriteLine();
                 Console.WriteLine("Press any key to continue.");
                 Console.ReadKey();
