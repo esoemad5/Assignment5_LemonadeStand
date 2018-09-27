@@ -33,7 +33,7 @@ namespace LemonadeStand
             // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
             for (int i = 0; i < customers.Count; i++)
             {
-                if(true/*some condition*/)
+                if(true/*some condition where Customer wants to buy lemonade*/)
                 {
                     player.SellLemonade(customers[i]);
                     if(player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])
@@ -53,7 +53,11 @@ namespace LemonadeStand
                     } 
                 }
             }
-            //Day ends
+            //Day ends  
+        }
+        private void EndDay()
+        {
+            // Generate everything needed for end of day display.
         }
     }
 }
