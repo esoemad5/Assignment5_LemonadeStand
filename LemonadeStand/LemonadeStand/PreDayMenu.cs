@@ -59,11 +59,24 @@ namespace LemonadeStand
         }
         public void MainLoop()
         {
+            Display();
             while (!playerIsReady)
             {
-                Display();
-                string[] command = GetPlayerInput();
-                ProcessInput(command);
+                
+                try
+                {
+                    string[] command = GetPlayerInput();
+                    ProcessInput(command);
+                }
+                catch(Exception e)
+                {
+                    message = (e.Message);
+                }
+                finally
+                {
+                    Display();
+                    message = "";
+                }
             }
         }
         private void Display()
@@ -98,7 +111,7 @@ namespace LemonadeStand
             Console.WriteLine();
             Console.WriteLine(message);
             Console.WriteLine();
-            Console.WriteLine("What would you like to do? (type Help for options)");
+            Console.WriteLine("What would you like to do? Type Help for options.");
         }
         private void ProcessInput(string[] command)
         {
@@ -160,10 +173,8 @@ namespace LemonadeStand
                 case "HELP":
                     // Console.write ValidInput descriptions. Kinda post-MVP, but the player does need to learn the commands at some point
                     break;
-                case "BAD":
-                    message = "That command is not recognized. Enter 'Help' to see a list of commands.";
-                    break;
                 default:
+                    message = "This message should never be shown. The game probably still works though.";
                     break;
             }
         }
@@ -172,10 +183,9 @@ namespace LemonadeStand
             string input = Console.ReadLine();
             string[] splitInput = input.ToUpper().Split(' ');
             string[] output = new string[splitInput.Length];
-            output[0] = "BAD";
             if (splitInput.Length > 2)
             {
-                return output;
+                throw new Exception("That command is not recognized. Enter 'Help' to see a list of commands.");
             }
 
             if (splitInput.Length == 1)
@@ -208,8 +218,7 @@ namespace LemonadeStand
                         return output;
                     }
                 }
-                output[0] = "BAD";
-                return output;
+                throw new Exception("That command is not recognized. Enter 'Help' to see a list of commands.");
             }            
         }
     }

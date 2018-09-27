@@ -38,7 +38,7 @@ namespace LemonadeStand
             inventory = new Inventory();
             recipe = new Recipe();
 
-            money = 20.00;
+            money = .10;
             lemonadeLeftInPitcher = 0;
             stats = new Stats();
         }
