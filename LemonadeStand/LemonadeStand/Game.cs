@@ -10,10 +10,12 @@ namespace LemonadeStand
     {
         private int gameLength;
         private int currentDay;
+        private int customersPerDay;
         public Game()
         {
             gameLength = 7;
             currentDay = 1;
+            customersPerDay = 100;
 
         }
         public void StartGame()
@@ -38,7 +40,7 @@ namespace LemonadeStand
                 }
 
                 Day day = new Day(player, weather);
-                day.StartDay();
+                day.StartDay(customersPerDay);
                 // End of day:
                 //      Display results:  money made vs money spent that day, and total money left.
 

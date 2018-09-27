@@ -18,6 +18,8 @@ namespace LemonadeStand
             chanceToBuyLemonade = 0;
             // Chance is number 1-100, if game rolls lower than the chance, Customer buys lemonade.
             // Sunny, Cloudy, Rainy adds 20, 30, 40
+
+            int sunnyChanceToBuyLemonade = 40;
             switch (weather.Conditions)
             {
                 case "Sunny":

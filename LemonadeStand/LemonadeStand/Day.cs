@@ -11,25 +11,24 @@ namespace LemonadeStand
         private Player player;
         private List<Customer> customers;
         private Weather weather;
-        private int classWideCounter; ////////////////////////////////////////////////////////
 
         public Day(Player player, Weather weather)
         {
             this.player = player;
             this.weather = weather;
         }
-        public void StartDay()
+        public void StartDay(int numberOfCustomers)
         {
-            customers = CreateListOfCustomers(100);
+            CreateListOfCustomers(numberOfCustomers);
             DayEndsOrMakeMoreLemonade(); // Make 1st pitcher of lemonade. Make sure user cant start day if there are not enough ingredients?
             Random rand = new Random();
-            for (classWideCounter = 0; classWideCounter < customers.Count; classWideCounter++)
+            for (int counter = 0; counter < customers.Count; counter++)
             {
-                int customerBuysLemonade = customers[classWideCounter].ChanceToBuyLemonade - rand.Next(100);
+                int customerBuysLemonade = customers[counter].ChanceToBuyLemonade - rand.Next(100);
                 if(customerBuysLemonade > 60)
                 {
                     player.SellLemonade();
-                    DayEndsOrMakeMoreLemonade();
+                    //counter = DayEndsOrMakeMoreLemonade();
                     player.SellLemonade();
                     DayEndsOrMakeMoreLemonade();
                 }
@@ -43,16 +42,15 @@ namespace LemonadeStand
         }
         private void EndDay()
         {
-            classWideCounter = customers.Count;
+            //classWideCounter = customers.Count;
         }
-        private List<Customer> CreateListOfCustomers(int numberOfCustomers) /////////////////////////////
+        private void CreateListOfCustomers(int numberOfCustomers)
         {
-            List<Customer> listOfCustomers = new List<Customer>();
-            while(listOfCustomers.Count < numberOfCustomers)
+            customers = new List<Customer>();
+            while(customers.Count < numberOfCustomers)
             {
-                listOfCustomers.Add(new Customer(player, weather));
+                customers.Add(new Customer(player, weather));
             }
-            return listOfCustomers;
         }
         private void DayEndsOrMakeMoreLemonade()
         {

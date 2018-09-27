@@ -4,3 +4,5 @@ If, in the future, I (or whoever would be working on the project) needed to do a
 
 
 In Day.StartDay, I use S. StartDay had a lot of stuff going on. The logic of making more lemonade or ending the day was the biggest culprit. I realized this was a function all it's own and wrote Day.DayEndsOrMakeMoreLemonade. Now Day.StartDay is mostly calls to other functions in a loop and each of these functions do just one thing, thus following the Single Responsibility Principle of SOLID.
+
+O Day.EndDay
