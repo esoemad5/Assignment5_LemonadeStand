@@ -34,24 +34,13 @@ namespace LemonadeStand
             // Each Customer decides to buy or not buy lemonade, customers can buy more than 1 cup of lemonade
             for (int i = 0; i < customers.Count; i++)
             {
+                
                 if(rand.Next(100) < customers[i].ChanceToBuyLemonade)
                 {
-                    player.SellLemonade(customers[i]);
-                    if(player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])
-                    {
-                        //Day ends
-                    }
-                    if (player.LemonadeLeftInPitcher <= 0)
-                    {
-                        if (player.HasIngredientsForNewPitcherOfLemonade())
-                        {
-                            player.MakeMoreLemonade();
-                        }
-                        else
-                        {
-                            EndDay();
-                        }
-                    } 
+  
+                    player.SellLemonade();
+                    DayEndsOrMakeMoreLemonade();
+                    
                 }
             }
             EndDay();  
@@ -68,6 +57,24 @@ namespace LemonadeStand
                 listOfCustomers.Add(new Customer(player, weather));
             }
             return listOfCustomers;
+        }
+        private void DayEndsOrMakeMoreLemonade()
+        {
+            if (player.Inventory.Cups == 0 || player.Inventory.Ice < player.Recipe.Quantities[2])
+            {
+                EndDay();
+            }
+            if (player.LemonadeLeftInPitcher <= 0)
+            {
+                if (player.HasIngredientsForNewPitcherOfLemonade())
+                {
+                    player.MakeMoreLemonade();
+                }
+                else
+                {
+                    EndDay();
+                }
+            }
         }
     }
 }
