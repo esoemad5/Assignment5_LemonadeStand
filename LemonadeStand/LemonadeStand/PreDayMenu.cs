@@ -69,23 +69,19 @@ namespace LemonadeStand
         }
         public void MainLoop()
         {
-            Display();
+            
             while (!playerIsReady)
             {
-                
                 try
                 {
+                    Console.Clear(); // Comment this line out when debugging
+                    Display();
                     string[] command = GetPlayerInput();
                     ProcessInput(command);
                 }
                 catch(Exception e)
                 {
                     message = (e.Message);
-                }
-                finally
-                {
-                    Display();
-                    message = "";
                 }
             }
         }
@@ -118,7 +114,6 @@ namespace LemonadeStand
         }
         private void Display()
         {
-            Console.Clear(); // Comment this line out when debugging
             MakeRecipeComponent();
             Console.WriteLine("Price: ${0} per cup", player.Recipe.Price);
             Console.WriteLine();
@@ -266,7 +261,7 @@ namespace LemonadeStand
                         return output;
                     }
                 }
-                return output;
+                throw new Exception("That command is not recognized. Enter 'Help' to see a list of commands.");
             }
             else
             {

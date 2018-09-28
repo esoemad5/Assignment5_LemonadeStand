@@ -37,7 +37,7 @@ namespace LemonadeStand
         }
         public void ResetMoneySpentToday()
         {
-            moneySpentTotal = 0;
+            moneySpentToday = 0;
         }
         public void ResetMoneyEarnedToday()
         {
