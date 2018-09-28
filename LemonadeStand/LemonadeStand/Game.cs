@@ -50,6 +50,8 @@ namespace LemonadeStand
                 }
                 foreach(Player player in players)
                 {
+                    weather.ChangeConditions();
+                    weather.ChangeTemperature();
                     if (player.hasQuit)
                     {
                         continue;
@@ -60,8 +62,12 @@ namespace LemonadeStand
                 
                 foreach(Player player in players)
                 {
-                    player.Stats.Display(currentDay);
-
+                    Console.Clear();
+                    Console.WriteLine("End of Day {0}", currentDay);
+                    Console.WriteLine();
+                    Console.WriteLine("The weather today was: {0}F and {1}", weather.Temperature, weather.Conditions);
+                    Console.WriteLine();
+                    player.Stats.Display();
                     player.Stats.ResetMoneyEarnedToday();
                     player.Stats.ResetMoneySpentToday();
                     Console.WriteLine();
@@ -78,7 +84,7 @@ namespace LemonadeStand
             Console.Clear();
             foreach(Player player in players)
             {
-                player.Stats.Display(currentDay);
+                player.Stats.Display();
                 Console.WriteLine();
                 Console.WriteLine("Press any key to continue.");
                 Console.WriteLine();

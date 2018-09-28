@@ -44,10 +44,8 @@ namespace LemonadeStand
         {
             moneyEarnedToday = 0;
         }
-        public void Display(int dayCount)
+        public void Display()
         {
-            Console.Clear();
-            Console.WriteLine("End of day {0}", dayCount);
             Console.WriteLine("{0}'s stats:", nameOfPlayer);
             Console.WriteLine();
             Console.WriteLine("Money earned today: ${0}", moneyEarnedToday);
