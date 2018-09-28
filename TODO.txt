@@ -2,7 +2,7 @@ This list is not comprehensive!
 
 Low-priority bugs:
 Inventory lists can store the wrong item (ex: I can put Ice into my lemons list). Impossible for the user to do, but recklessly changing the code may (unlikely) cause issues with this. Be careful!
-PreDayMenu.Display default case happens if 'exit' is entered. The default case for this switch (and probably most others in this project) should never reach the default case.
+PreDayMenu.Display default case happens if 'exit' is entered. The default case for this switch (and probably most others in this project) should never be reached.
 
 Post-MVP:
 End of day: # of lemonades sold, customer satisfaction rate, customer feedback table

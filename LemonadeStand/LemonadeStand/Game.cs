@@ -11,20 +11,23 @@ namespace LemonadeStand
         private int gameLength;
         private int currentDay;
         private int customersPerDay;
+
+        private Store store;
+        private List<Player> players;
+        private Weather weather;
+
+        PreDayMenu menu;
         public Game()
         {
             gameLength = 7;
             currentDay = 1;
             customersPerDay = 20;
+            store = new Store();
 
         }
         public void StartGame()
         {
             Player player = new Player();
-            Store store = new Store();
-            Weather weather;
-            PreDayMenu menu;
-            
             while (currentDay <= gameLength)
             {
                 weather = new Weather();

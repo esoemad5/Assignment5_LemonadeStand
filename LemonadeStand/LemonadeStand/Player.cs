@@ -8,6 +8,11 @@ namespace LemonadeStand
 {
     class Player
     {
+        private string name;
+        public string Name
+        {
+            get => name;
+        }
         private Inventory inventory;
         public Inventory Inventory
         {
