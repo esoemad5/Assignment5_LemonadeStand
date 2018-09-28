@@ -48,10 +48,10 @@ namespace LemonadeStand
                 {
                     break;
                 }
-                foreach(Player player in players)
+                weather.ChangeConditions();
+                weather.ChangeTemperature();
+                foreach (Player player in players)
                 {
-                    weather.ChangeConditions();
-                    weather.ChangeTemperature();
                     if (player.hasQuit)
                     {
                         continue;
