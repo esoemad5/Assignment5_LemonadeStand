@@ -16,6 +16,7 @@ namespace LemonadeStand
         private List<Player> players;
         private Weather weather;
 
+        StartMenu startMenu;
         PreDayMenu menu;
         public Game()
         {
@@ -23,10 +24,12 @@ namespace LemonadeStand
             currentDay = 1;
             customersPerDay = 20;
             store = new Store();
-
+            players = new List<Player>();
+            startMenu = new StartMenu();
         }
         public void StartGame()
         {
+            int numberOfPlayers = startMenu.Display();
             Player player = new Player();
             while (currentDay <= gameLength)
             {

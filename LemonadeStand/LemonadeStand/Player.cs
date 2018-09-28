@@ -41,6 +41,8 @@ namespace LemonadeStand
 
         public Player()
         {
+            Console.WriteLine("Please enter your name: ");
+            name = Console.ReadLine();
             inventory = new Inventory();
             recipe = new Recipe();
 
