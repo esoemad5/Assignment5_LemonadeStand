@@ -36,16 +36,20 @@ namespace LemonadeStand
                 weather = new Weather();
                 foreach(Player player in players)
                 {
+                    if (player.hasQuit)
+                    {
+                        continue;
+                    }
                     menu = new PreDayMenu(player, store, weather);
                     menu.MainLoop();
-                    if (menu.PlayerWantsToQuit)
-                    {
-                        break;
-                    }
                 }
                 
                 foreach(Player player in players)
                 {
+                    if (player.hasQuit)
+                    {
+                        continue;
+                    }
                     Day day = new Day(player, weather);
                     day.StartDay(customersPerDay);
                 }

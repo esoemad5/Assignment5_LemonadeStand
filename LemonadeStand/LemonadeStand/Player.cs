@@ -38,6 +38,7 @@ namespace LemonadeStand
         {
             get => stats;
         }
+        public bool hasQuit;
 
         public Player()
         {
@@ -49,6 +50,8 @@ namespace LemonadeStand
             money = 5.00;
             lemonadeLeftInPitcher = 0;
             stats = new Stats(name);
+
+            hasQuit = false;
         }
         public void AddToRecipe(string ingredient)
         {

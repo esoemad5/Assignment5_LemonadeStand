@@ -202,8 +202,10 @@ namespace LemonadeStand
                     playerIsReady = !playerIsReady;
                     break;
                 case "QUIT":
+                    // Should ask to confirm
                     playerWantsToQuit = !PlayerWantsToQuit;
                     playerIsReady = !playerIsReady;
+                    player.hasQuit = true;
                     return;
                 case "HELP":
                     DisplayHelpMessage();
