@@ -80,6 +80,8 @@ namespace LemonadeStand
             {
                 player.Stats.Display(currentDay);
                 Console.WriteLine();
+                Console.WriteLine("Press any key to continue.");
+                Console.WriteLine();
                 Console.WriteLine("Summer is over, nobody will buy lemonade until next year. Thank you for playing!!!");
                 Console.ReadKey();
             }
