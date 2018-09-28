@@ -62,24 +62,8 @@ namespace LemonadeStand
                 
                 foreach(Player player in players)
                 {
-                    Console.Clear();
-                    Console.WriteLine("End of Day {0}", currentDay);
-                    Console.WriteLine();
-                    Console.WriteLine("The weather today was: {0}F and {1}", weather.Temperature, weather.Conditions);
-                    Console.WriteLine();
-                    player.Stats.Display();
-                    player.Stats.ResetMoneyEarnedToday();
-                    player.Stats.ResetMoneySpentToday();
-                    Console.WriteLine();
-                    Console.WriteLine("Press c to continue.");
-                    char cont = 'a';
-                    while (cont != 'c')
-                    {
-                        cont = Console.ReadKey().KeyChar;
-                    }
-                }
-                
-                
+                    DisplayEndOfDayScreen(player);
+                }  
             }
             Console.Clear();
             foreach(Player player in players)
@@ -92,6 +76,24 @@ namespace LemonadeStand
                 Console.ReadKey();
             }
             
+        }
+        private void DisplayEndOfDayScreen(Player player)
+        {
+            Console.Clear();
+            Console.WriteLine("End of Day {0}", currentDay);
+            Console.WriteLine();
+            Console.WriteLine("The weather today was: {0}F and {1}", weather.Temperature, weather.Conditions);
+            Console.WriteLine();
+            player.Stats.Display();
+            player.Stats.ResetMoneyEarnedToday();
+            player.Stats.ResetMoneySpentToday();
+            Console.WriteLine();
+            Console.WriteLine("Press c to continue.");
+            char cont = 'a';
+            while (cont != 'c')
+            {
+                cont = Console.ReadKey().KeyChar;
+            }
         }
         private void MakePlayers(int numberOfPlayers)
         {
