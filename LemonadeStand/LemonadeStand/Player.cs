@@ -48,7 +48,7 @@ namespace LemonadeStand
 
             money = 5.00;
             lemonadeLeftInPitcher = 0;
-            stats = new Stats();
+            stats = new Stats(name);
         }
         public void AddToRecipe(string ingredient)
         {

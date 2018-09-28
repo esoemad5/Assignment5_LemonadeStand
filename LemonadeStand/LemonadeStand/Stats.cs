@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     class Stats
     {
-        // Money spent: each day and total
+        private string nameOfPlayer;
         private double moneySpentToday;
         public double MoneySpentToday { get => moneySpentToday; }
         private double moneySpentTotal;
@@ -18,8 +18,9 @@ namespace LemonadeStand
         private double moneyEarnedTotal;
         public double MoneyEarnedTotal { get => moneyEarnedTotal; }
         
-        public Stats()
+        public Stats(string nameOfPlayer)
         {
+            this.nameOfPlayer = nameOfPlayer;
             moneySpentToday = 0;
             moneySpentTotal = 0;
             moneyEarnedToday = 0;
@@ -47,6 +48,7 @@ namespace LemonadeStand
         {
             Console.Clear();
             Console.WriteLine("End of day {0}", dayCount);
+            Console.WriteLine("{0}'s stats:", nameOfPlayer);
             Console.WriteLine();
             Console.WriteLine("Money earned today: ${0}", moneyEarnedToday);
             Console.WriteLine("Money spent today: ${0}", moneySpentToday);

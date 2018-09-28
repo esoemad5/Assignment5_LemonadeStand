@@ -112,8 +112,14 @@ namespace LemonadeStand
             }
             Console.WriteLine();
         }
+        private void MakeNameComponent()
+        {
+            Console.WriteLine("{0}, it's your turn!", player.Name);
+            Console.WriteLine();
+        }
         private void Display()
         {
+            MakeNameComponent();
             MakeRecipeComponent();
             Console.WriteLine("Price: ${0} per cup", player.Recipe.Price);
             Console.WriteLine();
