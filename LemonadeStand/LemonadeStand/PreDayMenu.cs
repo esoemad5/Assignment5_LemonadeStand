@@ -16,11 +16,6 @@ namespace LemonadeStand
         private ValidInput[] actionsThatRequireAnItem;
         private ValidInput[] items;
 
-        private bool playerWantsToQuit;
-        public bool PlayerWantsToQuit
-        {
-            get => playerWantsToQuit;
-        }
         private bool playerIsReady;
 
         private string message;
@@ -203,7 +198,6 @@ namespace LemonadeStand
                     break;
                 case "QUIT":
                     // Should ask to confirm
-                    playerWantsToQuit = !PlayerWantsToQuit;
                     playerIsReady = !playerIsReady;
                     player.hasQuit = true;
                     return;

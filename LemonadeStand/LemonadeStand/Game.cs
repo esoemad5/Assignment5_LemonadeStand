@@ -21,7 +21,7 @@ namespace LemonadeStand
         public Game()
         {
             gameLength = 7;
-            currentDay = 1;
+            currentDay = 0;
             customersPerDay = 20;
             store = new Store();
             players = new List<Player>();
@@ -33,6 +33,7 @@ namespace LemonadeStand
             MakePlayers(numberOfPlayers);
             while (currentDay <= gameLength)
             {
+                currentDay++;
                 weather = new Weather();
                 foreach(Player player in players)
                 {
@@ -43,7 +44,10 @@ namespace LemonadeStand
                     menu = new PreDayMenu(player, store, weather);
                     menu.MainLoop();
                 }
-                
+                if (AllPlayersHaveQuit())
+                {
+                    break;
+                }
                 foreach(Player player in players)
                 {
                     if (player.hasQuit)
@@ -69,7 +73,7 @@ namespace LemonadeStand
                     }
                 }
                 
-                currentDay++;
+                
             }
             Console.Clear();
             foreach(Player player in players)
@@ -87,6 +91,17 @@ namespace LemonadeStand
             {
                 players.Add(new Player());
             }
+        }
+        private bool AllPlayersHaveQuit()
+        {
+            foreach(Player player in players)
+            {
+                if(player.hasQuit == false)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
