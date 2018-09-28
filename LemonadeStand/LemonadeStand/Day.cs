@@ -23,10 +23,11 @@ namespace LemonadeStand
             CreateListOfCustomers(numberOfCustomers);
             customerCounter = DayEndsOrMakeMoreLemonade(customerCounter); // Make 1st pitcher of lemonade.
             Random rand = new Random();
-            for (customerCounter = customerCounter; customerCounter < customers.Count; customerCounter++)
+            int customerBuysLemonade;
+            while(customerCounter < customers.Count)
             {
-                int customerBuysLemonade = customers[customerCounter].ChanceToBuyLemonade - rand.Next(100);
-                if(customerBuysLemonade > 60)
+                customerBuysLemonade = customers[customerCounter].ChanceToBuyLemonade - rand.Next(100);
+                if (customerBuysLemonade > 60)
                 {
                     player.SellLemonade();
                     customerCounter = DayEndsOrMakeMoreLemonade(customerCounter);
@@ -36,8 +37,9 @@ namespace LemonadeStand
                 if (customerBuysLemonade > 0)
                 {
                     player.SellLemonade();
-                    DayEndsOrMakeMoreLemonade(customerCounter);  
+                    DayEndsOrMakeMoreLemonade(customerCounter);
                 }
+                customerCounter++;
             }
         }
         private int SkipToEndOfDay(int customerCounter)
