@@ -65,17 +65,21 @@ namespace LemonadeStand
                     DisplayEndOfDayScreen(player);
                 }  
             }
-            Console.Clear();
             foreach(Player player in players)
             {
-                player.Stats.Display();
-                Console.WriteLine();
-                Console.WriteLine("Press any key to continue.");
-                Console.WriteLine();
-                Console.WriteLine("Summer is over, nobody will buy lemonade until next year. Thank you for playing!!!");
-                Console.ReadKey();
+                DisplayEndOfGameScreen(player);
             }
             
+        }
+        private void DisplayEndOfGameScreen(Player player)
+        {
+            Console.Clear();
+            player.Stats.Display();
+            Console.WriteLine();
+            Console.WriteLine("Press any key to continue.");
+            Console.WriteLine();
+            Console.WriteLine("Summer is over, nobody will buy lemonade until next year. Thank you for playing!!!");
+            Console.ReadKey();
         }
         private void DisplayEndOfDayScreen(Player player)
         {
