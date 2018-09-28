@@ -12,6 +12,7 @@ namespace LemonadeStand
 
         public int Display()
         {
+            welcomeMessage = "Welcome to Lemonade Stand! You can play alone or with your friends, but lets be honest, you don't have any of those do you?";
             Console.WriteLine(welcomeMessage);
             Console.WriteLine();
             return GetNumberOfPlayers();

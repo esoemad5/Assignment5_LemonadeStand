@@ -13,6 +13,7 @@ namespace LemonadeStand
         {
             get => chanceToBuyLemonade;
         }
+
         private int WeatherConditionsFactor(Weather weather)
         {
             // Sunny, Cloudy, Rainy adds 40, 30, 20
