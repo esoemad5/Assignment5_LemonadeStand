@@ -27,12 +27,12 @@ namespace LemonadeStand
             temperature = 60 + rand.Next(40);
             conditions = possibleConditions[rand.Next(3)];
         }
-        public void ChangeTemperature()
+        private void ChangeTemperature()
         {
             Random rand = new Random();
             temperature += 5 - rand.Next(10);
         }
-        public void ChangeConditions()
+        private void ChangeConditions()
         {
             Random rand = new Random();
             int chance = rand.Next(100);
@@ -51,6 +51,11 @@ namespace LemonadeStand
                     conditions = "Sunny";
                 }
             }
+        }
+        public void ForecastToActual()
+        {
+            ChangeConditions();
+            ChangeTemperature();
         }
     }
 }

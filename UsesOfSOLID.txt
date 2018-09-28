@@ -4,3 +4,5 @@ If, in the future, I (or whoever would be working on the project) needed to do a
 
 
 In Day.StartDay, I use S. StartDay had a lot of stuff going on. The logic of making more lemonade or ending the day was the biggest culprit. I realized this was a function all it's own and wrote Day.DayEndsOrMakeMoreLemonade. Now Day.StartDay is mostly calls to other functions in a loop and each of these functions do just one thing, thus following the Single Responsibility Principle of SOLID.
+
+O is followed in Weather.ForecastToActual runs Weather.ChangeTemperature/Conditions. Calling this function is better than calling the other two functions individually. In the future, a developer might want to do other things to go from a forecast to actual weather, including writing a new function. Instead of adding another function call to all the weather function calls in every part of the project (only 1 right now, but this could grow in the future), he/she would only need to edit this one function, thus following the Open/Closed Principle of SOLID

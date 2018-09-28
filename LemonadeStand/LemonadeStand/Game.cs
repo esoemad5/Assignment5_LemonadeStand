@@ -48,8 +48,7 @@ namespace LemonadeStand
                 {
                     break;
                 }
-                weather.ChangeConditions();
-                weather.ChangeTemperature();
+                weather.ForecastToActual();
                 foreach (Player player in players)
                 {
                     if (player.hasQuit)
