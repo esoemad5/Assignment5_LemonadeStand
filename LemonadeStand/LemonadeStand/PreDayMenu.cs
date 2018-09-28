@@ -197,10 +197,18 @@ namespace LemonadeStand
                     playerIsReady = !playerIsReady;
                     break;
                 case "QUIT":
-                    // Should ask to confirm
-                    playerIsReady = !playerIsReady;
-                    player.hasQuit = true;
-                    return;
+                    Console.WriteLine("Are you sure you want to quit? (Y/N)");
+                    char confirm = 'a';
+                    while(confirm != 'y' && confirm != 'n')
+                    {
+                        confirm = Console.ReadKey().KeyChar;
+                    }
+                    if(confirm == 'y')
+                    {
+                        playerIsReady = !playerIsReady;
+                        player.hasQuit = true;
+                    }
+                    break;
                 case "HELP":
                     DisplayHelpMessage();
                     break;
