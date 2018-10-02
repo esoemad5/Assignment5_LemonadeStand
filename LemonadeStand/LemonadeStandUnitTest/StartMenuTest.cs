@@ -1,11 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LemonadeStand;
 
 namespace LemonadeStandUnitTest
 {
     [TestClass]
-    public class WeatherUnitTests
+    public class StartMenuTest
     {
         [TestMethod]
         public void TestMethod1()

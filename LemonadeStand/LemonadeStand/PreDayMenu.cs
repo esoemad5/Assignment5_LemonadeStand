@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class PreDayMenu
+    public class PreDayMenu
     {
         private Player player;
         private Store store;

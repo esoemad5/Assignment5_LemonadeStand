@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class StartMenu
+    public class StartMenu
     {
         private string welcomeMessage;
 

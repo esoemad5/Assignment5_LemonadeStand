@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Stats
+    public class Stats
     {
         private string nameOfPlayer;
         private double moneySpentToday;

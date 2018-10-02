@@ -49,7 +49,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WeatherUnitTests.cs" />
+    <Compile Include="CustomerTest.cs" />
+    <Compile Include="DayTest.cs" />
+    <Compile Include="GameTest.cs" />
+    <Compile Include="InventoryTest.cs" />
+    <Compile Include="PlayerTest.cs" />
+    <Compile Include="PreDayMenuTest.cs" />
+    <Compile Include="RecipeTest.cs" />
+    <Compile Include="StartMenuTest.cs" />
+    <Compile Include="StatsTest.cs" />
+    <Compile Include="WeatherTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

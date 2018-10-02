@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class ValidInput
+    public class ValidInput
     {
         private string input;
         public string Input
