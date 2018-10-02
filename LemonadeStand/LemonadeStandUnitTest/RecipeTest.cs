@@ -8,19 +8,15 @@ namespace LemonadeStandUnitTest
     public class RecipeTest
     {
         [TestMethod]
-        public void Add_NotAnIngredient_QuantitiesAllZero()
+        [ExpectedException(typeof(Exception))]
+        public void Add_NotAnIngredient_ThrowAnException()
         {
             //Arrange
             Recipe recipe = new Recipe();
-            PrivateObject obj = new PrivateObject(recipe);
-            int[] expectedResult = obj.ingredients;
 
             //Act
-            obj.Add("Hello World!");
-            int[] result = obj.ingredients()
+            recipe.Add("Hello World!");
 
-            //Assert
-            Assert.AreEqual(expectedResult, result);
         }
     }
 }
